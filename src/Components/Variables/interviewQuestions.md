@@ -28,12 +28,9 @@ These questions are organized progressively to strengthen:
 ---
 
 ## 2. Create variables for:
-
-```js
 - age
 - city
 - country
-```
 
 Print all values.
 
