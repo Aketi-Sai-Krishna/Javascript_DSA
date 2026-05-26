@@ -1295,3 +1295,699 @@ console.log(a);
 ### Explanation
 
 Inner variable shadows outer variable inside block scope.
+
+---
+
+# 61. Explain Hoisting Internally Step-by-Step
+
+## Definition
+
+Hoisting is JavaScript’s behavior where variable and function declarations are moved into memory before code execution starts.
+
+---
+
+# Example
+
+```js id="h61a"
+console.log(a);
+
+var a = 10;
+```
+
+---
+
+# What Happens Internally
+
+JavaScript runs code in two phases:
+
+---
+
+# Phase 1 — Memory Creation Phase
+
+Before executing code, JavaScript scans the entire program.
+
+It creates memory for variables and functions.
+
+Internally:
+
+```text id="h61b"
+a → undefined
+```
+
+So memory becomes:
+
+| Variable | Value     |
+| -------- | --------- |
+| a        | undefined |
+
+---
+
+# Phase 2 — Execution Phase
+
+Now JavaScript executes code line-by-line.
+
+---
+
+## Step 1
+
+```js id="h61c"
+console.log(a);
+```
+
+Current value:
+
+```text id="h61d"
+undefined
+```
+
+So output becomes:
+
+```text id="h61e"
+undefined
+```
+
+---
+
+## Step 2
+
+```js id="h61f"
+var a = 10;
+```
+
+Now memory updates:
+
+```text id="h61g"
+a → 10
+```
+
+---
+
+# Important Understanding
+
+Hoisting does NOT move code physically.
+
+JavaScript internally prepares memory before execution starts.
+
+---
+
+# Interview Summary
+
+> Hoisting is JavaScript’s default behavior where variable and function declarations are stored in memory during the memory creation phase before execution begins.
+
+---
+
+# 62. Explain How the JavaScript Engine Stores Variables
+
+JavaScript stores variables differently depending on their type.
+
+---
+
+# Primitive Values
+
+Primitive values store actual values directly.
+
+Examples:
+
+* number
+* string
+* boolean
+* null
+* undefined
+
+Example:
+
+```js id="h62a"
+let age = 25;
+```
+
+Memory:
+
+```text id="h62b"
+age → 25
+```
+
+---
+
+# Reference Values
+
+Objects, arrays, and functions store references.
+
+Example:
+
+```js id="h62c"
+let user = {
+  name: "Sai"
+};
+```
+
+Memory:
+
+```text id="h62d"
+user → memory reference
+```
+
+Actual object stored elsewhere in heap memory.
+
+---
+
+# Internal Storage Areas
+
+JavaScript mainly uses:
+
+| Memory Type  | Stores                               |
+| ------------ | ------------------------------------ |
+| Stack Memory | Primitive values, execution contexts |
+| Heap Memory  | Objects, arrays, functions           |
+
+---
+
+# Simple Understanding
+
+## Primitive
+
+Stores actual value.
+
+---
+
+## Object
+
+Stores address/reference.
+
+---
+
+# 63. What Happens During the Compilation Phase?
+
+Before JavaScript executes code, it performs compilation.
+
+---
+
+# During Compilation
+
+JavaScript:
+
+* scans code
+* identifies variables
+* identifies functions
+* allocates memory
+* creates scope information
+
+---
+
+# Example
+
+```js id="h63a"
+var a = 10;
+
+function greet() {}
+```
+
+During compilation:
+
+```text id="h63b"
+a → undefined
+greet → full function stored
+```
+
+---
+
+# Important Tasks in Compilation
+
+## 1. Lexical Analysis
+
+Code broken into tokens.
+
+---
+
+## 2. Parsing
+
+JavaScript checks syntax structure.
+
+---
+
+## 3. Memory Allocation
+
+Variables/functions stored in memory.
+
+---
+
+## 4. Scope Creation
+
+JavaScript decides variable accessibility.
+
+---
+
+# Beginner Understanding
+
+Compilation means:
+
+# “JavaScript prepares everything before running code.”
+
+---
+
+# 64. Difference Between Compilation Phase and Execution Phase
+
+| Compilation Phase          | Execution Phase        |
+| -------------------------- | ---------------------- |
+| Memory preparation happens | Code runs line-by-line |
+| Variables stored           | Values assigned        |
+| Functions stored           | Functions executed     |
+| Scope created              | Logic executed         |
+
+---
+
+# Example
+
+```js id="h64a"
+var a = 10;
+```
+
+---
+
+# Compilation Phase
+
+```text id="h64b"
+a → undefined
+```
+
+---
+
+# Execution Phase
+
+```text id="h64c"
+a → 10
+```
+
+---
+
+# Simple Understanding
+
+## Compilation
+
+Preparation stage.
+
+---
+
+## Execution
+
+Actual running stage.
+
+---
+
+# 65. What is Variable Environment?
+
+A variable environment is the memory space where variables and functions are stored inside an execution context.
+
+---
+
+# Example
+
+```js id="h65a"
+let name = "Sai";
+
+function greet() {}
+```
+
+Variable environment stores:
+
+```text id="h65b"
+name → "Sai"
+greet → function
+```
+
+---
+
+# Every Function Gets Its Own Variable Environment
+
+Example:
+
+```js id="h65c"
+function test() {
+  let age = 25;
+}
+```
+
+`test()` creates separate variable environment.
+
+---
+
+# Simple Definition
+
+> Variable environment is the internal memory area where JavaScript stores variables and functions.
+
+---
+
+# 66. What is Lexical Scope Chain?
+
+Lexical scope chain is JavaScript’s mechanism for finding variables.
+
+JavaScript searches:
+
+1. current scope
+2. parent scope
+3. global scope
+
+---
+
+# Example
+
+```js id="h66a"
+let a = 10;
+
+function outer() {
+
+  let b = 20;
+
+  function inner() {
+    console.log(a);
+    console.log(b);
+  }
+
+  inner();
+}
+
+outer();
+```
+
+---
+
+# Variable Lookup
+
+Inside `inner()`:
+
+* first searches local scope
+* then parent (`outer`)
+* then global scope
+
+---
+
+# This Search Process Is Called
+
+# Lexical Scope Chain
+
+---
+
+# Important Understanding
+
+Functions remember where they were created.
+
+NOT where they are called.
+
+---
+
+# 67. Why Was `let` Introduced in ES6?
+
+Before ES6, JavaScript mainly used `var`.
+
+`var` caused many problems:
+
+* no block scope
+* accidental redeclaration
+* confusing hoisting behavior
+* loop issues
+
+---
+
+# Example Problem with `var`
+
+```js id="h67a"
+for(var i = 0; i < 3; i++) {}
+
+console.log(i);
+```
+
+Output:
+
+```text id="h67b"
+3
+```
+
+Because `var` is function scoped.
+
+---
+
+# ES6 Introduced `let`
+
+To solve:
+
+* scope problems
+* accidental bugs
+* variable conflicts
+
+---
+
+# Advantages of `let`
+
+| Feature                 | let |
+| ----------------------- | --- |
+| Block scoped            | ✅   |
+| Safer loops             | ✅   |
+| No redeclaration        | ✅   |
+| Cleaner memory behavior | ✅   |
+
+---
+
+# Simple Understanding
+
+> `let` was introduced to make variable handling safer and more predictable.
+
+---
+
+# 68. Explain Temporal Dead Zone (TDZ) Deeply
+
+TDZ is the time between:
+
+* variable hoisting
+  AND
+* variable initialization
+
+during which variable cannot be accessed.
+
+---
+
+# Example
+
+```js id="h68a"
+console.log(a);
+
+let a = 10;
+```
+
+Output:
+
+```text id="h68b"
+ReferenceError
+```
+
+---
+
+# Internally What Happens
+
+During memory phase:
+
+```text id="h68c"
+a → uninitialized
+```
+
+NOT:
+
+```text id="h68d"
+a → undefined
+```
+
+---
+
+# Important Difference
+
+| var                          | let/const                      |
+| ---------------------------- | ------------------------------ |
+| initialized with undefined   | uninitialized                  |
+| accessible before assignment | inaccessible before assignment |
+
+---
+
+# TDZ Timeline
+
+```text id="h68e"
+Memory creation starts
+↓
+Variable exists in memory
+↓
+Cannot access variable
+↓
+Initialization happens
+↓
+TDZ ends
+```
+
+---
+
+# Why TDZ Exists
+
+To prevent:
+
+* accidental access
+* unpredictable behavior
+* hidden bugs
+
+---
+
+# Beginner Understanding
+
+TDZ is:
+
+# “Protected waiting area before variable gets initialized.”
+
+---
+
+# 69. Can `const` Objects Mutate Internally? Why?
+
+YES ✅
+
+`const` prevents reassignment.
+
+It does NOT make objects fully immutable.
+
+---
+
+# Example
+
+```js id="h69a"
+const user = {
+  name: "Sai"
+};
+
+user.name = "Krishna";
+
+console.log(user);
+```
+
+Output:
+
+```text id="h69b"
+{ name: "Krishna" }
+```
+
+---
+
+# Why?
+
+Because:
+
+`const` protects:
+
+# variable reference
+
+NOT:
+
+# internal object values
+
+---
+
+# What Cannot Be Done
+
+```js id="h69c"
+const user = {};
+
+user = {};
+```
+
+This causes error.
+
+---
+
+# Simple Understanding
+
+## Allowed
+
+Changing object properties.
+
+---
+
+## Not Allowed
+
+Changing entire object reference.
+
+---
+
+# 70. Explain Memory Optimization Related to Variables
+
+Memory optimization means:
+
+# using memory efficiently.
+
+---
+
+# Why Important?
+
+Bad memory usage can cause:
+
+* slow applications
+* crashes
+* memory leaks
+
+---
+
+# Good Practices
+
+---
+
+# 1. Use `const` When Possible
+
+Prevents unnecessary reassignment.
+
+```js id="h70a"
+const API_URL = "/users";
+```
+
+---
+
+# 2. Avoid Unused Variables
+
+Bad:
+
+```js id="h70b"
+let data = 100;
+```
+
+Never used.
+
+Wastes memory.
+
+---
+
+# 3. Clear Large Objects When Not Needed
+
+```js id="h70c"
+largeData = null;
+```
+
+Helps garbage collector free memory.
+
+---
+
+# 4. Prefer Block Scope
+
+`let` and `const` reduce accidental memory sharing.
+
+---
+
+# 5. Avoid Global Variables
+
+Globals stay in memory longer.
+
+---
+
+# Garbage Collection
+
+JavaScript automatically removes unused memory using:
+
+# Garbage Collector
+
+---
+
+# Beginner Understanding
+
+Memory optimization means:
+
+# “Using only necessary memory and avoiding waste.”
+
