@@ -1,276 +1,179 @@
-# JavaScript Variables — Questions & Answers
+# JavaScript Variables Questions Roadmap
 
-## 1. Create a variable called `name` and store your name.
+## Beginner → Industry → FAANG → DSA Thinking Level
 
-### Answer
+These questions are organized in progression order so your thinking improves step by step.
 
-```js id="qa01"
-let name = "Sai";
-console.log(name);
-```
+Goal:
 
----
-
-# 2. Create variables for age, city, and country. Print all values.
-
-### Answer
-
-```js id="qa02"
-const age = 25;
-let city = "Hyderabad";
-const country = "India";
-
-console.log(age);
-console.log(city);
-console.log(country);
-```
+* Strong JS fundamentals
+* Interview preparation
+* Problem-solving mindset
+* Foundation for DSA
+* GitHub progress tracking
 
 ---
 
-# 3. Store two numbers and print their sum.
+# LEVEL 1 — Beginner Basics
 
-### Answer
+Focus:
 
-```js id="qa03"
-let a = 10;
-let b = 20;
-
-let sum = a + b;
-
-console.log(sum);
-```
+* Understanding variables
+* Syntax
+* Reassignment
+* Printing values
 
 ---
 
-# 4. Change the value of a variable declared using `let`.
+## 1
 
-### Answer
+Create a variable called `name` and store your name.
 
-```js id="qa04"
+---
+
+## 2
+
+Create variables for:
+
+* age
+* city
+* country
+
+Print all values.
+
+---
+
+## 3
+
+Store two numbers and print their sum.
+
+---
+
+## 4
+
+Create:
+
+```js id="varq01"
 let score = 10;
-
-score = 20;
-
-console.log(score);
 ```
 
-Output:
+Change it to `20`.
 
-```text id="qa05"
-20
-```
+Print final value.
 
 ---
 
-# 5. Try changing a `const` variable.
+## 5
 
-### Answer
+Create:
 
-```js id="qa06"
+```js id="varq02"
 const country = "India";
-
-country = "USA";
 ```
 
-Output:
+Try changing it.
 
-```text id="qa07"
-TypeError: Assignment to constant variable
-```
-
-Explanation:
-`const` variables cannot be reassigned.
+What happens?
 
 ---
 
-# 6. Combine first name and last name into full name.
+## 6
 
-### Answer
+Store:
 
-```js id="qa08"
-const firstName = "John";
-const lastName = "Doe";
+* firstName
+* lastName
 
-const fullName = firstName + " " + lastName;
+Combine into:
 
-console.log(fullName);
+```text id="varq03"
+fullName
 ```
 
 ---
 
-# 7. Create variables for boolean, string, and number data types.
+## 7
 
-### Answer
+Create variables for:
 
-```js id="qa09"
-let isLoggedIn = true;
-let userName = "Sai";
-let age = 25;
+* boolean
+* string
+* number
+
+---
+
+## 8
+
+Use `typeof` on different variables.
+
+---
+
+## 9
+
+Swap two variable values.
+
+---
+
+## 10
+
+Store marks of 5 subjects and calculate total.
+
+---
+
+# LEVEL 2 — Understanding Variable Behavior
+
+Focus:
+
+* Scope basics
+* Naming
+* Memory thinking
+
+---
+
+## 11
+
+Which variable names are valid?
+
+```js id="varq04"
+let firstName
+let 1name
+let user-name
+let totalMarks
 ```
 
 ---
 
-# 8. Use `typeof` on different variables.
+## 12
 
-### Answer
+Convert these into camelCase:
 
-```js id="qa10"
-let isLoggedIn = true;
-let userName = "Sai";
-let age = 25;
-
-console.log(typeof isLoggedIn);
-console.log(typeof userName);
-console.log(typeof age);
-```
-
-Output:
-
-```text id="qa11"
-boolean
-string
-number
-```
+* total marks
+* login status
+* user score
 
 ---
 
-# 9. Swap two variable values using a temporary variable.
+## 13
 
-### Answer
+Difference between:
 
-```js id="qa12"
-let x = 10;
-let y = 20;
-
-let temp = x;
-
-x = y;
-y = temp;
-
-console.log(x);
-console.log(y);
-```
-
-Output:
-
-```text id="qa13"
-20
-10
-```
+* declaration
+* initialization
+* assignment
 
 ---
 
-# 10. Store marks of 5 subjects and calculate total.
+## 14
 
-### Answer
-
-```js id="qa14"
-const telugu = 100;
-const hindi = 80;
-const english = 90;
-const maths = 95;
-const science = 85;
-
-const totalMarks =
-  telugu + hindi + english + maths + science;
-
-console.log(totalMarks);
-```
+Explain reassignment.
 
 ---
 
-# 11. Identify valid and invalid variable names.
+## 15
 
-### Answer
+Predict output:
 
-✅ Valid
-
-```js id="qa15"
-let firstName;
-let totalMarks;
-```
-
-❌ Invalid
-
-```js id="qa16"
-let 1name;
-let user-name;
-```
-
-Explanation:
-
-* Variable names cannot start with numbers.
-* Hyphen (`-`) is not allowed in variable names.
-
----
-
-# 12. Convert names into camelCase format.
-
-### Answer
-
-```js id="qa17"
-let totalMarks;
-let loginStatus;
-let userScore;
-```
-
----
-
-# 13. Explain declaration, initialization, and assignment.
-
-### Answer
-
-## Declaration
-
-Creating a variable name.
-
-```js id="qa18"
-let name;
-```
-
----
-
-## Initialization
-
-Giving first value to variable.
-
-```js id="qa19"
-let name = "Sai";
-```
-
----
-
-## Assignment
-
-Changing or setting value later.
-
-```js id="qa20"
-name = "Krishna";
-```
-
----
-
-# 14. Explain reassignment.
-
-### Answer
-
-Reassignment means changing the value of an existing variable.
-
-```js id="qa21"
-let age = 25;
-
-age = 30;
-
-console.log(age);
-```
-
----
-
-# 15. Predict the output.
-
-### Code
-
-```js id="qa22"
+```js id="varq05"
 let a = 10;
 
 a = 20;
@@ -278,115 +181,70 @@ a = 20;
 console.log(a);
 ```
 
-### Output
+---
 
-```text id="qa23"
-20
+## 16
+
+Explain:
+
+```text id="varq06"
+variable → value in memory
 ```
 
 ---
 
-# 16. Explain: variable → value in memory
+## 17
 
-### Answer
+What happens internally when JS sees:
 
-Variables are named references that point to values stored in memory.
-
-Example:
-
-```js id="qa24"
-let age = 25;
-```
-
-Memory representation:
-
-```text id="qa25"
-age → 25
+```js id="varq07"
+let age = 22;
 ```
 
 ---
 
-# 17. What happens internally when JavaScript sees `let age = 22`?
+## 18
 
-### Answer
+Difference between:
 
-JavaScript executes code in two phases:
-
-## 1. Memory Creation Phase
-
-The variable is stored in memory.
-
-```text id="qa26"
-age → uninitialized
-```
+* `var`
+* `let`
+* `const`
 
 ---
 
-## 2. Execution Phase
+## 19
 
-The value is assigned.
+When should you use:
 
-```text id="qa27"
-age → 22
-```
-
-Explanation:
-`let` variables are hoisted but remain in the Temporal Dead Zone until initialization.
+* `let`
+* `const`
 
 ---
 
-# 18. Difference between `var`, `let`, and `const`.
+## 20
 
-### Answer
-
-| Feature      | `var`    | `let` | `const` |
-| ------------ | -------- | ----- | ------- |
-| Scope        | Function | Block | Block   |
-| Reassign     | ✅        | ✅     | ❌       |
-| Redeclare    | ✅        | ❌     | ❌       |
-| Hoisted      | ✅        | ✅     | ✅       |
-| TDZ          | ❌        | ✅     | ✅       |
-| Modern Usage | ❌        | ✅     | ✅       |
+Why is `var` avoided in modern JavaScript?
 
 ---
 
-# 19. When should you use `let` and `const`?
+# LEVEL 3 — Scope Questions
 
-### Answer
+Focus:
 
-Use:
+* Block scope
+* Function scope
+* Global scope
 
-* `const` when value should not change
-* `let` when value needs reassignment
-
-Example:
-
-```js id="qa28"
-const API_URL = "/users";
-
-let loading = true;
-```
+VERY important for interviews.
 
 ---
 
-# 20. Why is `var` avoided in modern JavaScript?
+## 21
 
-### Answer
+Predict output:
 
-`var` is avoided because:
-
-* it ignores block scope
-* allows redeclaration
-* creates hoisting confusion
-* can introduce bugs in large applications
-
----
-
-# 21. Predict the output.
-
-### Code
-
-```js id="qa29"
+```js id="varq08"
 {
   let a = 10;
 }
@@ -394,22 +252,13 @@ let loading = true;
 console.log(a);
 ```
 
-### Output
-
-```text id="qa30"
-ReferenceError
-```
-
-Explanation:
-`let` is block scoped.
-
 ---
 
-# 22. Predict the output.
+## 22
 
-### Code
+Predict output:
 
-```js id="qa31"
+```js id="varq09"
 {
   var a = 10;
 }
@@ -417,74 +266,31 @@ Explanation:
 console.log(a);
 ```
 
-### Output
+---
 
-```text id="qa32"
-10
-```
+## 23
 
-Explanation:
-`var` ignores block scope.
+Explain block scope.
 
 ---
 
-# 23. Explain block scope.
+## 24
 
-### Answer
-
-Block scope means variables declared using `let` and `const` can only be accessed inside the block `{}` where they are declared.
-
-Example:
-
-```js id="qa33"
-{
-  let num = 10;
-  console.log(num);
-}
-```
+Explain function scope.
 
 ---
 
-# 24. Explain function scope.
+## 25
 
-### Answer
-
-Function scope means variables declared inside a function are accessible only within that function.
-
-Example:
-
-```js id="qa34"
-function test() {
-  var a = 10;
-  console.log(a);
-}
-```
+Explain global scope.
 
 ---
 
-# 25. Explain global scope.
+## 26
 
-### Answer
+Predict output:
 
-Global scope means variables declared outside functions and blocks can be accessed from anywhere in the program.
-
-Example:
-
-```js id="qa35"
-let name = "Sai";
-
-function test() {
-  console.log(name);
-}
-```
-
----
-
-# 26. Predict the output.
-
-### Code
-
-```js id="qa36"
+```js id="varq10"
 let a = 100;
 
 {
@@ -495,23 +301,13 @@ let a = 100;
 console.log(a);
 ```
 
-### Output
-
-```text id="qa37"
-200
-100
-```
-
-Explanation:
-Both variables exist in different block scopes.
-
 ---
 
-# 27. Predict the output.
+## 27
 
-### Code
+Predict output:
 
-```js id="qa38"
+```js id="varq11"
 var a = 100;
 
 {
@@ -521,61 +317,534 @@ var a = 100;
 console.log(a);
 ```
 
-### Output
+---
 
-```text id="qa39"
-200
+## 28
+
+Which are block scoped?
+
+* var
+* let
+* const
+
+---
+
+## 29
+
+Difference between:
+
+* block scope
+* function scope
+
+---
+
+## 30
+
+Why is scope important in large applications?
+
+---
+
+# LEVEL 4 — Hoisting & TDZ
+
+Focus:
+
+* Memory creation phase
+* Execution phase
+* TDZ
+
+VERY heavily asked in interviews.
+
+---
+
+## 31
+
+Predict output:
+
+```js id="varq12"
+console.log(a);
+
+var a = 10;
 ```
 
-Explanation:
-`var` ignores block scope.
+---
+
+## 32
+
+Predict output:
+
+```js id="varq13"
+console.log(a);
+
+let a = 10;
+```
 
 ---
 
-# 28. Which variables are block scoped?
+## 33
 
-### Answer
+Predict output:
 
-`let` and `const` are block scoped.
+```js id="varq14"
+console.log(a);
+
+const a = 10;
+```
 
 ---
 
-# 29. Difference between block scope and function scope.
+## 34
 
-### Answer
+What is hoisting?
 
-## Block Scope
+---
 
-Variables exist only inside `{}` blocks.
+## 35
 
-```js id="qa40"
-{
-  let a = 10;
+What is TDZ?
+
+---
+
+## 36
+
+Why does `var` print `undefined`?
+
+---
+
+## 37
+
+Explain memory creation phase.
+
+---
+
+## 38
+
+Explain execution phase.
+
+---
+
+## 39
+
+Difference between:
+
+```text id="varq15"
+undefined
+```
+
+and
+
+```text id="varq16"
+not defined
+```
+
+---
+
+## 40
+
+Explain:
+
+```text id="varq17"
+let and const are hoisted but inaccessible before initialization
+```
+
+---
+
+# LEVEL 5 — Interview-Level Questions
+
+Focus:
+
+* Deep JS understanding
+* Internal engine behavior
+* Real interview questions
+
+---
+
+## 41
+
+Difference between:
+
+* redeclaration
+* reassignment
+
+---
+
+## 42
+
+Predict output:
+
+```js id="varq18"
+var a = 10;
+var a = 20;
+
+console.log(a);
+```
+
+---
+
+## 43
+
+Predict output:
+
+```js id="varq19"
+let a = 10;
+let a = 20;
+```
+
+---
+
+## 44
+
+Why is this invalid?
+
+```js id="varq20"
+const a;
+```
+
+---
+
+## 45
+
+Predict output:
+
+```js id="varq21"
+let a;
+
+console.log(a);
+```
+
+---
+
+## 46
+
+Predict output:
+
+```js id="varq22"
+console.log(a);
+```
+
+---
+
+## 47
+
+Explain:
+
+* declaration
+* initialization
+* assignment
+  with examples.
+
+---
+
+## 48
+
+Why do modern React developers prefer `const`?
+
+---
+
+## 49
+
+Explain:
+
+* primitive storage
+* reference storage
+
+---
+
+## 50
+
+How are variables stored internally in memory?
+
+---
+
+# LEVEL 6 — Industry-Level JavaScript Questions
+
+Focus:
+
+* Real engineering thinking
+* Debugging
+* Closures foundation
+* Async understanding
+
+---
+
+## 51
+
+Predict output:
+
+```js id="varq23"
+for(var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
 }
 ```
 
 ---
 
-## Function Scope
+## 52
 
-Variables exist only inside functions.
-
-```js id="qa41"
-function test() {
-  var a = 10;
-}
-```
+Fix previous question using `let`.
 
 ---
 
-# 30. Why is scope important in large applications?
+## 53
 
-### Answer
+Why does `let` fix closure problems in loops?
 
-Scope is important because it:
+---
 
-* prevents variable conflicts
-* improves security
-* avoids accidental modifications
-* makes debugging easier
-* improves maintainability of large applications
+## 54
+
+Explain lexical environment.
+
+---
+
+## 55
+
+Explain execution context.
+
+---
+
+## 56
+
+Difference between:
+
+* stack memory
+* heap memory
+
+---
+
+## 57
+
+Explain variable lookup mechanism.
+
+---
+
+## 58
+
+What happens internally when variable is accessed?
+
+---
+
+## 59
+
+Why are block-scoped variables safer?
+
+---
+
+## 60
+
+Explain shadowing with variables.
+
+---
+
+# LEVEL 7 — FAANG-Level Conceptual Questions
+
+Focus:
+
+* Deep internal understanding
+* Advanced JS fundamentals
+* Engine behavior
+
+---
+
+## 61
+
+Explain hoisting internally step-by-step.
+
+---
+
+## 62
+
+Explain how JS engine stores variables.
+
+---
+
+## 63
+
+What happens during compilation phase?
+
+---
+
+## 64
+
+Difference between:
+
+* compile phase
+* execution phase
+
+---
+
+## 65
+
+What is variable environment?
+
+---
+
+## 66
+
+What is lexical scope chain?
+
+---
+
+## 67
+
+Why was `let` introduced in ES6?
+
+---
+
+## 68
+
+Explain Temporal Dead Zone deeply.
+
+---
+
+## 69
+
+Can `const` objects mutate internally? Why?
+
+---
+
+## 70
+
+Explain memory optimization related to variables.
+
+---
+
+# LEVEL 8 — DSA-Oriented Variable Thinking
+
+These are NOT pure DSA yet,
+but they train the brain for DSA.
+
+Focus:
+
+* state tracking
+* counters
+* memory updates
+* loop thinking
+
+---
+
+## 71
+
+Use variable to count numbers from 1–10.
+
+---
+
+## 72
+
+Find sum of numbers from 1–100.
+
+---
+
+## 73
+
+Use variable as counter inside loop.
+
+---
+
+## 74
+
+Track maximum number using variable.
+
+---
+
+## 75
+
+Track minimum number using variable.
+
+---
+
+## 76
+
+Swap two variables without third variable.
+
+---
+
+## 77
+
+Use variable to reverse a number.
+
+---
+
+## 78
+
+Use variable to count digits in number.
+
+---
+
+## 79
+
+Track frequency count manually using variables.
+
+---
+
+## 80
+
+Use variables to generate Fibonacci sequence.
+
+---
+
+# LEVEL 9 — Real DSA Foundation Thinking
+
+These questions start building algorithmic thinking.
+
+---
+
+## 81
+
+Use variables to track current maximum.
+
+---
+
+## 82
+
+Use variables to track current minimum.
+
+---
+
+## 83
+
+Use variables for running sum.
+
+---
+
+## 84
+
+Use variables for two-pointer thinking basics.
+
+---
+
+## 85
+
+Use temporary variables for swapping logic.
+
+---
+
+## 86
+
+Track window sum using variables.
+
+---
+
+## 87
+
+Store intermediate results using variables.
+
+---
+
+## 88
+
+Update state variables inside loops.
+
+---
+
+## 89
+
+Optimize repeated calculations using variables.
+
+---
+
+## 90
+
+Explain why variable tracking is important in algorithms.
+

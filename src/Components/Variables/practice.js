@@ -251,4 +251,66 @@ Why is scope important in large applications?
 
 scope is important because the in large application variables can be redeclared and re assigned values, that may lead to errors alot
 
+31. Undefined
+
+32. Error
+
+33.error
+
+34. Hoisting is a concept in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase. This means that you can use variables and functions before they are declared in the code. 
+    However, only the declarations are hoisted, not the initializations.
+
+35. Temporal Dead zone : the zone between the variable declaration and console.log or its usage 
+
+36. Due to hoisting concept
+
+37. Js runs the code in Execution context it has two phases one is memory phase and another is code phase. In memory phase it stores the variables , functions deleclrations initially
+
+38. In execution phase , it runs the code line by line , once current executed then it goes to next line.it performs after the memory phase
+
+39. Undefined means where variables is not initilized at all and not defined means it not was declared at all.
+
+40. Let and const are hoisted but inaccessible before initialization, due to temporal dead zone concept
+
+41. Redeclarition mean re declaring the same variable , let a and let a, reassignment means the changing the assigned value of the variable let name  = ‘sai’ name = “kitty”
+
+42. 20
+
+43. Error
+
+44. For const we must initialised with value. Const pi=3.142 
+
+45. Not defined
+
+46. Undefined 
+
+47. Var name ; Var name = ‘sai’ ; name = “Kesha”
+
+48. Const can not be redeclared and reassigned, by using it decreases the variable conflicts and easily manageable in large code bases.
+
+49.?
+
+50. If var a = 10 , In js code execution context , variable store initially in memory phase like Var a as undefined initially and in code phase it value was assigned because of step by step code execution.
+
+51. 3,3,3
+
+52. 0,1,2
+
+53. Blocked scope
+
+54.?
+
+55. Execution context where js code works in that way it has two phases I.e, memory phase and code phase
+
+56. Stack Memory means , where execution context was stack one above the other stack until the code function completes , once function completes it closes permanently, heap memory? 
+
+57.?
+
+58. In memory phase variable stored as undefined initially and in code phase it was initialised with it assigned value and then in next context memory phase is updated with assigned value.
+
+59.block scoped variables are performed with in that block and they can not be accessed outside of that block space
+
+60.?
+
+
 
