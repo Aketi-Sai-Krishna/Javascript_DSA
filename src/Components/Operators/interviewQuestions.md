@@ -606,5 +606,669 @@ console.log(a++ + ++a);
 
 ## 90. Why are operators considered the foundation of DSA and algorithm design?
 
+
+---
+
+# LEVEL 1 — Increment / Decrement Operators
+
+### Focus Areas
+
+* Variable updates
+* Counters
+* Loop thinking
+
+---
+
+## 1. What is the increment operator (`++`)?
+
+---
+
+## 2. What is the decrement operator (`--`)?
+
+---
+
+## 3. What does the following code output?
+
+```js
+let count = 5;
+
+count++;
+
+console.log(count);
+```
+
+---
+
+## 4. What does the following code output?
+
+```js
+let count = 5;
+
+count--;
+
+console.log(count);
+```
+
+---
+
+## 5. What is the difference between `count++` and `count--`?
+
+---
+
+## 6. What is pre-increment (`++a`)?
+
+---
+
+## 7. What is post-increment (`a++`)?
+
+---
+
+## 8. Predict the output:
+
+```js
+let a = 5;
+
+console.log(++a);
+```
+
+---
+
+## 9. Predict the output:
+
+```js
+let a = 5;
+
+console.log(a++);
+```
+
+---
+
+## 10. Predict the output:
+
+```js
+let a = 5;
+
+console.log(a++);
+console.log(a);
+```
+
+---
+
+## 11. What is pre-decrement (`--a`)?
+
+---
+
+## 12. What is post-decrement (`a--`)?
+
+---
+
+## 13. Predict the output:
+
+```js
+let a = 10;
+
+console.log(--a);
+```
+
+---
+
+## 14. Predict the output:
+
+```js
+let a = 10;
+
+console.log(a--);
+```
+
+---
+
+## 15. Predict the output:
+
+```js
+let a = 10;
+
+console.log(a--);
+console.log(a);
+```
+
+---
+
+# LEVEL 2 — Interview-Level Increment Questions
+
+---
+
+## 16. Predict the output:
+
+```js
+let a = 10;
+
+console.log(a++ + ++a);
+```
+
+---
+
+## 17. Predict the output:
+
+```js
+let a = 5;
+
+console.log(++a + ++a);
+```
+
+---
+
+## 18. Predict the output:
+
+```js
+let a = 5;
+
+console.log(a++ + a++);
+```
+
+---
+
+## 19. Why should complex increment expressions be avoided in production code?
+
+---
+
+## 20. Where are increment operators commonly used?
+
+---
+
+# LEVEL 3 — Ternary Operator
+
+### Focus Areas
+
+* Conditional logic
+* React rendering
+* Decision making
+
+---
+
+## 21. What is a ternary operator?
+
+---
+
+## 22. What is the syntax of a ternary operator?
+
+---
+
+## 23. Convert this into a ternary operator:
+
+```js
+if(age >= 18){
+   console.log("Adult");
+}else{
+   console.log("Minor");
+}
+```
+
+---
+
+## 24. Predict the output:
+
+```js
+let age = 20;
+
+console.log(
+age >= 18
+? "Adult"
+: "Minor"
+);
+```
+
+---
+
+## 25. Predict the output:
+
+```js
+let marks = 30;
+
+console.log(
+marks >= 35
+? "Pass"
+: "Fail"
+);
+```
+
+---
+
+## 26. When should you use a ternary operator?
+
+---
+
+## 27. When should you avoid a ternary operator?
+
+---
+
+## 28. What is a nested ternary operator?
+
+---
+
+## 29. Predict the output:
+
+```js
+let marks = 85;
+
+let grade =
+marks >= 90 ? "A" :
+marks >= 75 ? "B" :
+marks >= 50 ? "C" :
+"Fail";
+
+console.log(grade);
+```
+
+---
+
+## 30. Why is the ternary operator popular in React?
+
+---
+
+# LEVEL 4 — Nullish Coalescing Operator (`??`)
+
+### Focus Areas
+
+* Default values
+* Modern JavaScript
+* React applications
+
+---
+
+## 31. What is the nullish coalescing operator?
+
+---
+
+## 32. What is the syntax of `??`?
+
+---
+
+## 33. What values trigger the right side of `??`?
+
+---
+
+## 34. Predict the output:
+
+```js
+let username = null;
+
+console.log(
+username ?? "Guest"
+);
+```
+
+---
+
+## 35. Predict the output:
+
+```js
+let username = undefined;
+
+console.log(
+username ?? "Guest"
+);
+```
+
+---
+
+## 36. Predict the output:
+
+```js
+let username = "Sai";
+
+console.log(
+username ?? "Guest"
+);
+```
+
+---
+
+## 37. Predict the output:
+
+```js
+console.log(
+0 ?? 100
+);
+```
+
+---
+
+## 38. Predict the output:
+
+```js
+console.log(
+false ?? true
+);
+```
+
+---
+
+## 39. Predict the output:
+
+```js
+console.log(
+"" ?? "Guest"
+);
+```
+
+---
+
+## 40. Why was the nullish coalescing operator introduced?
+
+---
+
+# LEVEL 5 — `||` vs `??`
+
+---
+
+## 41. Difference between `||` and `??`.
+
+---
+
+## 42. Predict the output:
+
+```js
+console.log(
+0 || 100
+);
+```
+
+---
+
+## 43. Predict the output:
+
+```js
+console.log(
+0 ?? 100
+);
+```
+
+---
+
+## 44. Predict the output:
+
+```js
+console.log(
+false || true
+);
+```
+
+---
+
+## 45. Predict the output:
+
+```js
+console.log(
+false ?? true
+);
+```
+
+---
+
+## 46. Predict the output:
+
+```js
+console.log(
+"" || "Guest"
+);
+```
+
+---
+
+## 47. Predict the output:
+
+```js
+console.log(
+"" ?? "Guest"
+);
+```
+
+---
+
+## 48. When should developers prefer `??` over `||`?
+
+---
+
+## 49. Why is `??` heavily used in React applications?
+
+---
+
+## 50. Give a real-world example where `??` is useful.
+
+---
+
+# LEVEL 6 — Optional Chaining (`?.`)
+
+### Focus Areas
+
+* Safe property access
+* API responses
+* Error prevention
+
+---
+
+## 51. What is optional chaining?
+
+---
+
+## 52. Why was optional chaining introduced?
+
+---
+
+## 53. What problem does optional chaining solve?
+
+---
+
+## 54. What is the syntax of optional chaining?
+
+---
+
+## 55. Predict the output:
+
+```js
+const user = {};
+
+console.log(
+user.address?.city
+);
+```
+
+---
+
+## 56. What would happen without optional chaining in the previous example?
+
+---
+
+## 57. Predict the output:
+
+```js
+const user = {
+  profile: {
+    city: "Hyderabad"
+  }
+};
+
+console.log(
+user.profile?.city
+);
+```
+
+---
+
+## 58. Can optional chaining be used with arrays?
+
+---
+
+## 59. Can optional chaining be used with function calls?
+
+---
+
+## 60. Predict the output:
+
+```js
+const user = {
+  greet() {
+    return "Hello";
+  }
+};
+
+console.log(
+user.greet?.()
+);
+```
+
+---
+
+# LEVEL 7 — Industry-Level Questions
+
+---
+
+## 61. Why is optional chaining important when working with APIs?
+
+---
+
+## 62. Explain this statement:
+
+```js
+response?.data?.user?.name
+```
+
+---
+
+## 63. Why does optional chaining return `undefined` instead of throwing an error?
+
+---
+
+## 64. Difference between:
+
+```js
+user.address.city
+```
+
+and
+
+```js
+user.address?.city
+```
+
+---
+
+## 65. Why is optional chaining commonly used in React applications?
+
+---
+
+## 66. What are the advantages of optional chaining?
+
+---
+
+## 67. What are the limitations of optional chaining?
+
+---
+
+## 68. Can optional chaining replace all null checks?
+
+---
+
+## 69. What happens internally when JavaScript evaluates `?.`?
+
+---
+
+## 70. Give a real-world example of optional chaining.
+
+---
+
+# LEVEL 8 — FAANG-Level Questions
+
+---
+
+## 71. Explain how pre-increment and post-increment work internally.
+
+---
+
+## 72. Explain operator precedence involving increment operators.
+
+---
+
+## 73. Explain nested ternary evaluation step by step.
+
+---
+
+## 74. Why can nested ternaries become difficult to maintain?
+
+---
+
+## 75. Explain the internal difference between `||` and `??`.
+
+---
+
+## 76. Explain short-circuiting in optional chaining.
+
+---
+
+## 77. Explain how optional chaining improves application stability.
+
+---
+
+## 78. Why are `??` and `?.` considered modern JavaScript features?
+
+---
+
+## 79. Explain how React applications benefit from `??` and `?.`.
+
+---
+
+## 80. Compare:
+
+```js
+&&
+||
+??
+?.
+```
+
+---
+
+# LEVEL 9 — DSA-Oriented Thinking
+
+---
+
+## 81. Why are increment operators heavily used in loops?
+
+---
+
+## 82. How is `++` used in array traversal?
+
+---
+
+## 83. How is `++` used in frequency counting?
+
+---
+
+## 84. How is `--` used in two-pointer algorithms?
+
+---
+
+## 85. How is the ternary operator used in algorithm output formatting?
+
+---
+
+## 86. How can `??` help when processing missing input data?
+
+---
+
+## 87. How can optional chaining help while traversing nested objects?
+
+---
+
+## 88. How are increment operators used in Binary Search?
+
+---
+
+## 89. How are increment operators used in Sliding Window problems?
+
+---
+
+## 90. Why are these operators important foundations for DSA and software engineering?
+
 ---
 

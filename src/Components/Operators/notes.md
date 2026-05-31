@@ -956,3 +956,840 @@ while(left < right)
 ```
 
 ---
+
+# 5. Increment / Decrement Operators
+
+## What are Increment and Decrement Operators?
+
+These operators are used to increase or decrease a variable's value by **1**.
+
+---
+
+## Increment Operator (`++`)
+
+Increases a variable by 1.
+
+### Example
+
+```js
+let count = 5;
+
+count++;
+
+console.log(count);
+```
+
+### Output
+
+```text
+6
+```
+
+Equivalent to:
+
+```js
+count = count + 1;
+```
+
+---
+
+## Decrement Operator (`--`)
+
+Decreases a variable by 1.
+
+### Example
+
+```js
+let count = 5;
+
+count--;
+
+console.log(count);
+```
+
+### Output
+
+```text
+4
+```
+
+Equivalent to:
+
+```js
+count = count - 1;
+```
+
+---
+
+# Types of Increment
+
+There are two types:
+
+```text
+1. Pre Increment  (++a)
+2. Post Increment (a++)
+```
+
+---
+
+## Pre Increment (`++a`)
+
+Increment happens first.
+
+### Example
+
+```js
+let a = 5;
+
+console.log(++a);
+```
+
+### Output
+
+```text
+6
+```
+
+### Internal Working
+
+```js
+a = a + 1;
+console.log(a);
+```
+
+---
+
+## Post Increment (`a++`)
+
+Current value is used first.
+
+Increment happens later.
+
+### Example
+
+```js
+let a = 5;
+
+console.log(a++);
+```
+
+### Output
+
+```text
+5
+```
+
+After execution:
+
+```js
+console.log(a);
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+# Pre Increment vs Post Increment
+
+```js
+let a = 5;
+
+console.log(++a);
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+```js
+let a = 5;
+
+console.log(a++);
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+# Types of Decrement
+
+```text
+1. Pre Decrement (--a)
+2. Post Decrement (a--)
+```
+
+---
+
+## Pre Decrement
+
+```js
+let a = 5;
+
+console.log(--a);
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+## Post Decrement
+
+```js
+let a = 5;
+
+console.log(a--);
+```
+
+Output:
+
+```text
+5
+```
+
+Later:
+
+```text
+4
+```
+
+---
+
+# Common Interview Question
+
+```js
+let a = 10;
+
+console.log(a++ + ++a);
+```
+
+### Step-by-Step
+
+```text
+a++  → returns 10
+a becomes 11
+
+++a → becomes 12
+returns 12
+
+10 + 12 = 22
+```
+
+### Output
+
+```text
+22
+```
+
+---
+
+# Real-World Usage
+
+### Counter
+
+```js
+count++;
+```
+
+---
+
+### Loop
+
+```js
+for(let i = 0; i < 5; i++)
+{
+    console.log(i);
+}
+```
+
+---
+
+# 6. Ternary Operator
+
+## What is a Ternary Operator?
+
+A shorthand version of:
+
+```js
+if
+else
+```
+
+---
+
+## Syntax
+
+```js
+condition ? valueIfTrue : valueIfFalse;
+```
+
+---
+
+## Traditional if-else
+
+```js
+let age = 20;
+
+if(age >= 18)
+{
+   console.log("Adult");
+}
+else
+{
+   console.log("Minor");
+}
+```
+
+---
+
+## Using Ternary
+
+```js
+let age = 20;
+
+console.log(age >= 18 ? "Adult" : "Minor");
+```
+
+---
+
+## Output
+
+```text
+Adult
+```
+
+---
+
+# How Ternary Works
+
+```js
+condition
+    ? true result
+    : false result
+```
+
+Think:
+
+```text
+Question ? Yes : No
+```
+
+---
+
+## Example
+
+```js
+let marks = 80;
+
+let result =
+marks >= 35 ? "Pass" : "Fail";
+
+console.log(result);
+```
+
+Output:
+
+```text
+Pass
+```
+
+---
+
+# Nested Ternary
+
+```js
+let marks = 85;
+
+let grade =
+marks >= 90 ? "A" :
+marks >= 75 ? "B" :
+marks >= 50 ? "C" :
+"Fail";
+
+console.log(grade);
+```
+
+Output:
+
+```text
+B
+```
+
+---
+
+# React Usage
+
+Very common in React.
+
+```jsx
+{
+isLoggedIn
+? <Dashboard />
+: <Login />
+}
+```
+
+---
+
+# Advantages
+
+```text
+Less code
+Easy conditional rendering
+Readable for simple conditions
+```
+
+---
+
+# Disadvantages
+
+```text
+Hard to read when deeply nested
+Can reduce maintainability
+```
+
+---
+
+# 7. Nullish Coalescing Operator (`??`)
+
+## What is Nullish Coalescing?
+
+Provides a default value only when the left side is:
+
+```text
+null
+undefined
+```
+
+---
+
+## Syntax
+
+```js
+value ?? defaultValue
+```
+
+---
+
+## Example
+
+```js
+let username = null;
+
+console.log(
+username ?? "Guest"
+);
+```
+
+Output:
+
+```text
+Guest
+```
+
+---
+
+## Example
+
+```js
+let username = undefined;
+
+console.log(
+username ?? "Guest"
+);
+```
+
+Output:
+
+```text
+Guest
+```
+
+---
+
+## Example
+
+```js
+let username = "Sai";
+
+console.log(
+username ?? "Guest"
+);
+```
+
+Output:
+
+```text
+Sai
+```
+
+---
+
+# Difference Between `||` and `??`
+
+## OR Operator
+
+```js
+console.log(0 || 100);
+```
+
+Output:
+
+```text
+100
+```
+
+Because:
+
+```text
+0 is falsy
+```
+
+---
+
+## Nullish Operator
+
+```js
+console.log(0 ?? 100);
+```
+
+Output:
+
+```text
+0
+```
+
+Because:
+
+```text
+0 is NOT null
+0 is NOT undefined
+```
+
+---
+
+## Another Example
+
+```js
+console.log("" || "Guest");
+```
+
+Output:
+
+```text
+Guest
+```
+
+---
+
+```js
+console.log("" ?? "Guest");
+```
+
+Output:
+
+```text
+```
+
+(empty string)
+
+---
+
+# When to Use `??`
+
+Use when:
+
+```text
+0 is valid
+false is valid
+"" is valid
+```
+
+and you only want a fallback for:
+
+```text
+null
+undefined
+```
+
+---
+
+# React Example
+
+```js
+const username =
+apiResponse.name ?? "Guest";
+```
+
+---
+
+# 8. Optional Chaining (`?.`)
+
+## What is Optional Chaining?
+
+Safely accesses nested properties without causing errors.
+
+---
+
+## Problem Before Optional Chaining
+
+```js
+const user = {};
+
+console.log(
+user.address.city
+);
+```
+
+Output:
+
+```text
+TypeError
+```
+
+Because:
+
+```text
+address does not exist
+```
+
+---
+
+# Solution
+
+```js
+const user = {};
+
+console.log(
+user.address?.city
+);
+```
+
+Output:
+
+```text
+undefined
+```
+
+---
+
+# How It Works
+
+```js
+user.address?.city
+```
+
+Meaning:
+
+```text
+Does address exist?
+
+YES → Continue
+
+NO → Return undefined
+```
+
+---
+
+# Deep Nesting Example
+
+```js
+const user = {
+  profile: {
+    address: {
+      city: "Hyderabad"
+    }
+  }
+};
+```
+
+---
+
+```js
+console.log(
+user.profile?.address?.city
+);
+```
+
+Output:
+
+```text
+Hyderabad
+```
+
+---
+
+# Optional Chaining with Arrays
+
+```js
+const users = [
+   { name: "Sai" }
+];
+```
+
+```js
+console.log(
+users[0]?.name
+);
+```
+
+Output:
+
+```text
+Sai
+```
+
+---
+
+# Optional Chaining with Functions
+
+```js
+const user = {
+  greet() {
+    return "Hello";
+  }
+};
+```
+
+```js
+console.log(
+user.greet?.()
+);
+```
+
+Output:
+
+```text
+Hello
+```
+
+---
+
+# Why Optional Chaining is Important
+
+Without it:
+
+```js
+if(
+user &&
+user.profile &&
+user.profile.address
+)
+{
+}
+```
+
+With it:
+
+```js
+user?.profile?.address
+```
+
+Cleaner and easier to read.
+
+---
+
+# Real-World React Usage
+
+API responses often contain missing fields.
+
+```js
+const city =
+response?.data?.user?.address?.city;
+```
+
+This prevents application crashes.
+
+---
+
+# Interview Revision
+
+## Increment / Decrement
+
+```js
+++a
+a++
+
+--a
+a--
+```
+
+---
+
+## Ternary
+
+```js
+condition
+? trueValue
+: falseValue
+```
+
+---
+
+## Nullish Coalescing
+
+```js
+value ?? fallback
+```
+
+Returns fallback only for:
+
+```text
+null
+undefined
+```
+
+---
+
+## Optional Chaining
+
+```js
+object?.property
+object?.method?.()
+array?.[0]
+```
+
+Returns:
+
+```text
+undefined
+```
+
+instead of throwing an error.
+
+---
+
+# What You Have Completed in Operators
+
+✅ Arithmetic Operators
+
+✅ Assignment Operators
+
+✅ Comparison Operators
+
+✅ Logical Operators
+
+✅ Increment / Decrement Operators
+
+✅ Ternary Operator
+
+✅ Nullish Coalescing Operator
+
+✅ Optional Chaining
+
+You have now covered the major JavaScript operator categories commonly expected in frontend interviews, React development, and the foundations needed before moving to conditional statements and DSA.

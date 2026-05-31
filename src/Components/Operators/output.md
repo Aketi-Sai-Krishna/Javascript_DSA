@@ -944,3 +944,906 @@ Assignment operators update window sums, counts, and indices efficiently.
 Because every algorithm relies on calculations, comparisons, updates, and condition checking, all of which are performed using operators.
 
 ---
+That's a large set (90 questions with detailed answers). For your GitHub learning roadmap, the best approach is the same one we followed for Variables, Data Types, and the first Operators topics:
+
+### Structure
+
+* Part 1 → Questions 1–20 (Beginner)
+* Part 2 → Questions 21–40 (Intermediate)
+* Part 3 → Questions 41–60 (Advanced)
+* Part 4 → Questions 61–80 (Industry / FAANG)
+* Part 5 → Questions 81–90 (DSA-Oriented)
+
+This keeps the README readable and easier to review before interviews.
+
+# Part 1 (Questions 1–20) — Answers Only
+
+---
+
+## 1. What is the increment operator (`++`)?
+
+The increment operator increases a variable's value by 1.
+
+```js
+let count = 5;
+count++;
+// count = 6
+```
+
+---
+
+## 2. What is the decrement operator (`--`)?
+
+The decrement operator decreases a variable's value by 1.
+
+```js
+let count = 5;
+count--;
+// count = 4
+```
+
+---
+
+## 3. What does the following code output?
+
+```js
+let count = 5;
+
+count++;
+
+console.log(count);
+```
+
+### Answer
+
+```text
+6
+```
+
+---
+
+## 4. What does the following code output?
+
+```js
+let count = 5;
+
+count--;
+
+console.log(count);
+```
+
+### Answer
+
+```text
+4
+```
+
+---
+
+## 5. What is the difference between `count++` and `count--`?
+
+| Operator  | Meaning       |
+| --------- | ------------- |
+| `count++` | Increase by 1 |
+| `count--` | Decrease by 1 |
+
+---
+
+## 6. What is pre-increment (`++a`)?
+
+The value is incremented first, then returned.
+
+```js
+let a = 5;
+
+console.log(++a);
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+## 7. What is post-increment (`a++`)?
+
+The current value is returned first, then incremented.
+
+```js
+let a = 5;
+
+console.log(a++);
+```
+
+Output:
+
+```text
+5
+```
+
+After execution:
+
+```text
+6
+```
+
+---
+
+## 8. Predict the output
+
+```js
+let a = 5;
+
+console.log(++a);
+```
+
+### Answer
+
+```text
+6
+```
+
+---
+
+## 9. Predict the output
+
+```js
+let a = 5;
+
+console.log(a++);
+```
+
+### Answer
+
+```text
+5
+```
+
+---
+
+## 10. Predict the output
+
+```js
+let a = 5;
+
+console.log(a++);
+console.log(a);
+```
+
+### Answer
+
+```text
+5
+6
+```
+
+---
+
+## 11. What is pre-decrement (`--a`)?
+
+The value is decreased first, then returned.
+
+```js
+let a = 5;
+
+console.log(--a);
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+## 12. What is post-decrement (`a--`)?
+
+The current value is returned first, then decreased.
+
+```js
+let a = 5;
+
+console.log(a--);
+```
+
+Output:
+
+```text
+5
+```
+
+After execution:
+
+```text
+4
+```
+
+---
+
+## 13. Predict the output
+
+```js
+let a = 10;
+
+console.log(--a);
+```
+
+### Answer
+
+```text
+9
+```
+
+---
+
+## 14. Predict the output
+
+```js
+let a = 10;
+
+console.log(a--);
+```
+
+### Answer
+
+```text
+10
+```
+
+---
+
+## 15. Predict the output
+
+```js
+let a = 10;
+
+console.log(a--);
+console.log(a);
+```
+
+### Answer
+
+```text
+10
+9
+```
+
+---
+
+## 16. Predict the output
+
+```js
+let a = 10;
+
+console.log(a++ + ++a);
+```
+
+### Answer
+
+```text
+22
+```
+
+Explanation:
+
+```text
+a++ returns 10
+a becomes 11
+
+++a becomes 12
+returns 12
+
+10 + 12 = 22
+```
+
+---
+
+## 17. Predict the output
+
+```js
+let a = 5;
+
+console.log(++a + ++a);
+```
+
+### Answer
+
+```text
+13
+```
+
+Explanation:
+
+```text
+++a → 6
+++a → 7
+
+6 + 7 = 13
+```
+
+---
+
+## 18. Predict the output
+
+```js
+let a = 5;
+
+console.log(a++ + a++);
+```
+
+### Answer
+
+```text
+11
+```
+
+Explanation:
+
+```text
+a++ → 5
+a becomes 6
+
+a++ → 6
+a becomes 7
+
+5 + 6 = 11
+```
+
+---
+
+## 19. Why should complex increment expressions be avoided in production code?
+
+Because they reduce readability, increase confusion, and make debugging difficult.
+
+Prefer:
+
+```js
+a++;
+total += a;
+```
+
+instead of:
+
+```js
+total += a++ + ++a;
+```
+
+---
+
+## 20. Where are increment operators commonly used?
+
+* Loops
+* Counters
+* Array traversal
+* Frequency counting
+* DSA algorithms
+* Pagination
+* Statistics calculations
+
+```js
+for(let i = 0; i < arr.length; i++)
+{
+    console.log(arr[i]);
+}
+```
+
+---
+
+# JavaScript Operators — Interview Questions & Answers
+
+## Part 2 (Questions 21–50)
+
+---
+
+# Ternary Operator
+
+## 21. What is a ternary operator?
+
+A ternary operator is a shorthand version of an `if...else` statement.
+
+### Syntax
+
+```js id="op21"
+condition ? valueIfTrue : valueIfFalse;
+```
+
+---
+
+## 22. What is the syntax of a ternary operator?
+
+```js id="op22"
+condition ? trueResult : falseResult;
+```
+
+---
+
+## 23. Convert this into a ternary operator
+
+```js id="op23a"
+if(age >= 18){
+   console.log("Adult");
+}else{
+   console.log("Minor");
+}
+```
+
+### Answer
+
+```js id="op23b"
+console.log(
+  age >= 18
+    ? "Adult"
+    : "Minor"
+);
+```
+
+---
+
+## 24. Predict the output
+
+```js id="op24"
+let age = 20;
+
+console.log(
+  age >= 18
+    ? "Adult"
+    : "Minor"
+);
+```
+
+### Answer
+
+```text id="op24a"
+Adult
+```
+
+---
+
+## 25. Predict the output
+
+```js id="op25"
+let marks = 30;
+
+console.log(
+  marks >= 35
+    ? "Pass"
+    : "Fail"
+);
+```
+
+### Answer
+
+```text id="op25a"
+Fail
+```
+
+---
+
+## 26. When should you use a ternary operator?
+
+Use a ternary operator for simple conditional decisions that return one of two values.
+
+Example:
+
+```js id="op26"
+const status =
+  isLoggedIn
+    ? "Welcome"
+    : "Please Login";
+```
+
+---
+
+## 27. When should you avoid a ternary operator?
+
+Avoid ternary operators when:
+
+* Logic becomes complex
+* Multiple conditions are involved
+* Readability decreases
+
+Prefer:
+
+```js id="op27"
+if(condition){
+   ...
+}else{
+   ...
+}
+```
+
+---
+
+## 28. What is a nested ternary operator?
+
+A ternary operator placed inside another ternary operator.
+
+Example:
+
+```js id="op28"
+let grade =
+  marks >= 90 ? "A" :
+  marks >= 75 ? "B" :
+  marks >= 50 ? "C" :
+  "Fail";
+```
+
+---
+
+## 29. Predict the output
+
+```js id="op29"
+let marks = 85;
+
+let grade =
+  marks >= 90 ? "A" :
+  marks >= 75 ? "B" :
+  marks >= 50 ? "C" :
+  "Fail";
+
+console.log(grade);
+```
+
+### Answer
+
+```text id="op29a"
+B
+```
+
+---
+
+## 30. Why is the ternary operator popular in React?
+
+Because it allows concise conditional rendering.
+
+Example:
+
+```jsx id="op30"
+{
+  isLoggedIn
+    ? <Dashboard />
+    : <Login />
+}
+```
+
+---
+
+# Nullish Coalescing Operator (??)
+
+## 31. What is the nullish coalescing operator?
+
+The `??` operator provides a fallback value when the left side is:
+
+* `null`
+* `undefined`
+
+---
+
+## 32. What is the syntax of `??`?
+
+```js id="op32"
+value ?? fallbackValue
+```
+
+---
+
+## 33. What values trigger the right side of `??`?
+
+Only:
+
+```text id="op33"
+null
+undefined
+```
+
+---
+
+## 34. Predict the output
+
+```js id="op34"
+let username = null;
+
+console.log(
+  username ?? "Guest"
+);
+```
+
+### Answer
+
+```text id="op34a"
+Guest
+```
+
+---
+
+## 35. Predict the output
+
+```js id="op35"
+let username = undefined;
+
+console.log(
+  username ?? "Guest"
+);
+```
+
+### Answer
+
+```text id="op35a"
+Guest
+```
+
+---
+
+## 36. Predict the output
+
+```js id="op36"
+let username = "Sai";
+
+console.log(
+  username ?? "Guest"
+);
+```
+
+### Answer
+
+```text id="op36a"
+Sai
+```
+
+---
+
+## 37. Predict the output
+
+```js id="op37"
+console.log(
+  0 ?? 100
+);
+```
+
+### Answer
+
+```text id="op37a"
+0
+```
+
+---
+
+## 38. Predict the output
+
+```js id="op38"
+console.log(
+  false ?? true
+);
+```
+
+### Answer
+
+```text id="op38a"
+false
+```
+
+---
+
+## 39. Predict the output
+
+```js id="op39"
+console.log(
+  "" ?? "Guest"
+);
+```
+
+### Answer
+
+```text id="op39a"
+```
+
+(Empty String)
+
+---
+
+## 40. Why was the nullish coalescing operator introduced?
+
+To provide default values without treating valid values like:
+
+```text id="op40"
+0
+false
+""
+```
+
+as missing values.
+
+---
+
+# || vs ??
+
+## 41. Difference between `||` and `??`
+
+### `||`
+
+Returns the right value when the left value is falsy.
+
+Falsy values:
+
+```text id="op41a"
+false
+0
+""
+null
+undefined
+NaN
+```
+
+### `??`
+
+Returns the right value only when the left value is:
+
+```text id="op41b"
+null
+undefined
+```
+
+---
+
+## 42. Predict the output
+
+```js id="op42"
+console.log(
+  0 || 100
+);
+```
+
+### Answer
+
+```text id="op42a"
+100
+```
+
+---
+
+## 43. Predict the output
+
+```js id="op43"
+console.log(
+  0 ?? 100
+);
+```
+
+### Answer
+
+```text id="op43a"
+0
+```
+
+---
+
+## 44. Predict the output
+
+```js id="op44"
+console.log(
+  false || true
+);
+```
+
+### Answer
+
+```text id="op44a"
+true
+```
+
+---
+
+## 45. Predict the output
+
+```js id="op45"
+console.log(
+  false ?? true
+);
+```
+
+### Answer
+
+```text id="op45a"
+false
+```
+
+---
+
+## 46. Predict the output
+
+```js id="op46"
+console.log(
+  "" || "Guest"
+);
+```
+
+### Answer
+
+```text id="op46a"
+Guest
+```
+
+---
+
+## 47. Predict the output
+
+```js id="op47"
+console.log(
+  "" ?? "Guest"
+);
+```
+
+### Answer
+
+```text id="op47a"
+```
+
+(Empty String)
+
+---
+
+## 48. When should developers prefer `??` over `||`?
+
+When values such as:
+
+```text id="op48"
+0
+false
+""
+```
+
+are valid and should not be replaced by fallback values.
+
+---
+
+## 49. Why is `??` heavily used in React applications?
+
+Because API responses often contain:
+
+```text id="op49"
+null
+undefined
+```
+
+and React components need safe default values.
+
+Example:
+
+```js id="op49a"
+const username =
+  response.name ?? "Guest";
+```
+
+---
+
+## 50. Give a real-world example where `??` is useful.
+
+```js id="op50"
+const salary =
+  employee.salary ?? 0;
+
+console.log(salary);
+```
+
+If salary is:
+
+```text id="op50a"
+null
+undefined
+```
+
+Output:
+
+```text id="op50b"
+0
+```
+
+Otherwise, the actual salary is returned.
+
+---
+
+
+
