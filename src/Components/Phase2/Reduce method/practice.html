@@ -1,0 +1,667 @@
+<html>
+    <Head>
+        <title>Reduce</title>
+    </Head>
+    <body>
+        <script>
+            const numbers = [1,2,3,4,5];
+
+                const add =() => {
+                   return numbers.reduce((acc , current) => acc + current, 0);
+                }
+
+            console.log(add());
+
+            //2. Product of all numbers
+            
+             const num = [1,2,3,4];
+
+             const prod =()=>{
+               return num.reduce((acc, current)=> acc * current, 1)
+             }
+
+             console.log(prod());
+
+             //3. Count total elements.
+
+            const fruits = ["apple", "banana", "orange"];
+            const count = () =>{
+                return fruits.reduce((acc)=> acc + 1, 0)};
+            console.log(count());
+
+            //4.Find the largest number.
+
+           const larger = [10, 5, 90, 2, 45];
+
+           const lar =()=>{
+            return larger.reduce((acc, current) => acc > current ? acc : current, larger[0])
+           }
+           console.log(lar());
+
+           //5. smallest
+
+           const small = ()=>{
+            return larger.reduce((acc, cur) => acc < cur ? acc: cur, larger[0] );
+           }
+
+           console.log(small())
+
+           //6.Calculate total cart price.
+
+            const cart = [
+                { name: "Phone", price: 20000 },
+                { name: "Laptop", price: 50000 },
+                { name: "Tablet", price: 30000 }
+            ];
+
+            const totalPrice =()=>{
+              return cart.reduce((acc, cur)=> acc + cur.price, 0);
+            }
+
+            console.log(totalPrice())
+
+            //7. Calculate total salary.
+
+            const employees = [
+            { salary: 30000 },
+            { salary: 40000 },
+            { salary: 50000 }
+            ];
+
+
+            const sal =()=>{
+                return employees.reduce((acc, cur) => acc+ cur.salary,0 );
+            }
+            console.log(sal());
+
+            //8 Calculate total quantity.
+
+            const cart1 = [
+            { name: "Phone", quantity: 2 },
+            { name: "Laptop", quantity: 1 },
+            { name: "Tablet", quantity: 3 }
+            ];
+
+            const quan = ()=>{
+                return cart1.reduce((acc, cur) => acc + cur.quantity ,0)
+            }
+
+            console.log(quan());
+
+            //9. Find the most expensive product.
+
+                const products = [
+                { name: "Phone", price: 20000 },
+                { name: "Laptop", price: 50000 },
+                { name: "Tablet", price: 30000 }
+                ];
+
+                const exp = ()=>{
+                    return products.reduce((acc, cur) => acc.price > cur.price ? acc : cur, products[0])
+                }
+
+                console.log(exp());
+
+            //10.Find average age.
+
+                const users = [
+                { age: 20 },
+                { age: 30 },
+                { age: 40 }
+                ];
+
+                const avg = () =>{
+                   const total = users.reduce((acc, cur) => acc + cur.age, 0 );
+                   return total/users.length;
+                }
+
+            //11. Count how many users are adults
+
+                const users1 = [
+                { age: 17 },
+                { age: 20 },
+                { age: 16 },
+                { age: 25 }
+                ];
+
+            const adults = ()=>{
+                return users1.reduce((acc, cur) => {
+                    return acc + (cur.age >= 18 ? 1 : 0)
+                }, 0);
+            }
+
+            console.log(adults());
+
+
+            //12. Count occurrences.
+
+            const fruits2 = [
+                    "apple",
+                    "banana",
+                    "apple",
+                    "orange",
+                    "apple"
+            ];
+
+            const freq = () => {
+              return fruits2.reduce((acc, current) => {
+                 acc[current] = (acc[current] || 0) + 1;
+                 return acc;
+              }, {});
+            }
+
+            console.log(freq());
+
+            //13.
+
+            const letters = [
+            "a",
+            "b",
+            "a",
+            "c",
+            "b",
+            "a"
+            ];
+
+            const fee = () =>{
+             return letters.reduce((acc, current) => {
+                acc[current] = (acc[current] || 0) + 1;
+                return acc;
+             }, {})
+            }
+
+            console.log(fee());
+
+            //14.Group students by grade.
+
+            const students = [
+            { name: "Sai", grade: "A" },
+            { name: "John", grade: "B" },
+            { name: "Krishna", grade: "A" }
+            ];
+
+
+            const grade =()=>{
+                return students.reduce((acc,current)=>{
+                    if(!acc[current.grade]){
+                        acc[current.grade] = [];
+                    }
+                    acc[current.grade].push(current);
+                    return acc;
+                },{})
+            }
+
+            console.log(grade());
+
+
+            //15.Create object by ID.
+
+const users123 = [
+  { id: 1, name: "Sai" },
+  { id: 2, name: "John" }
+];
+
+// Expected:
+
+// {
+//   1: { id: 1, name: "Sai" },
+//   2: { id: 2, name: "John" }
+// }
+
+
+const obj = ()=>{
+    return users123.reduce((acc, current) =>{
+         acc[current.id] = current;
+         return acc;
+    }, {})
+}
+
+console.log(obj());
+
+//16 Count product categories.
+
+const products12 = [
+  { category: "Electronics" },
+  { category: "Books" },
+  { category: "Electronics" }
+];
+
+// Expected:
+
+// {
+//   Electronics: 2,
+//   Books: 1
+// }
+
+
+const cat =()=>{
+   products12.reduce((acc,cur)=>{
+    acc[curr.category] = (acc[curr.category] || 0) + 1;
+    return acc;
+   },{})
+}
+
+console.log(cat());
+
+//17 Calculate total salary.
+
+const employees1 = [
+  { salary: 30000 },
+  { salary: 40000 },
+  { salary: 50000 }
+];
+
+// Expected:
+
+// 120000
+
+const emp =()=>{
+    return employees1.reduce((acc, current) => {
+       acc = acc + current.salary;
+       return acc;
+    }, 0)
+}
+
+
+//18 Get all names into one string.
+
+const users3 = [
+  { name: "Sai" },
+  { name: "John" },
+  { name: "Krishna" }
+];
+
+// Expected:
+
+// "Sai, John, Krishna"
+
+
+const string =()=>{
+    return users3.reduce((acc,cur, index)=>{
+       return acc + (index > 0 ? "," : "") + cur.name;
+    },"")
+}
+
+
+//19 Find total likes.
+
+const posts = [
+  { likes: 10 },
+  { likes: 20 },
+  { likes: 30 }
+];
+
+// Expected:
+
+// 60
+
+
+const post = () => {
+    return posts.reduce((acc, cur)=>{
+        return acc + cur.likes;
+    }, 0)
+}
+
+console.log(post());
+
+
+//20.Calculate average product price.
+
+const products99 = [
+  { price: 100 },
+  { price: 200 },
+  { price: 300 }
+];
+
+// Expected:
+
+// 200
+
+
+const pro = () => {
+   const total12 = products99.reduce((acc,cur)=>{
+    return acc + cur.price;
+   })
+   return total12/products99.length;
+}
+
+
+//21.Flatten array.
+
+const numbers0 = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+
+// Expected:
+
+// [1,2,3,4,5,6]
+
+const flat = () =>{
+   return numbers0.reduce((acc,cur) => {
+     return acc.concat(cur); 
+   },[])
+}
+
+
+console.log(flat());
+
+
+//22. Find unique values.
+
+const numa = [
+  1,
+  2,
+  2,
+  3,
+  4,
+  4,
+  5
+];
+
+// Expected:
+
+// [1,2,3,4,5]
+
+
+const unq = ()=>{
+   return numa.reduce((accelerate, current)=>{
+     if (!accelerate.includes(current)){
+        accelerate.push(current);
+     }
+     return accelerate;
+   },[])
+}
+
+console.log(unq());
+
+
+//23.Group orders by category.
+
+const orders = [
+  { category: "Electronics", amount: 1000 },
+  { category: "Books", amount: 500 },
+  { category: "Electronics", amount: 2000 }
+];
+
+// Expected:
+
+// {
+//   Electronics: [
+//     { category: "Electronics", amount: 1000 },
+//     { category: "Electronics", amount: 2000 }
+//   ],
+//   Books: [
+//     { category: "Books", amount: 500 }
+//   ]
+// }
+
+
+const ord = ()=>{
+    return orders.reduce((acc, cur)=>{
+        if(!acc[cur.category]){
+            acc[cur.category]= []
+        }
+        acc[cur.category].push(cur);
+
+        return acc;
+    },{})
+}
+
+console.log(ord());
+
+// Problem 24
+
+// Calculate category totals.
+
+const ordA = [
+  { category: "Electronics", amount: 1000 },
+  { category: "Books", amount: 500 },
+  { category: "Electronics", amount: 2000 }
+];
+
+// Expected:
+
+// {
+//   Electronics: 3000,
+//   Books: 500
+// }
+
+
+const ordzz = ()=>{
+
+    return ordA.reduce((acc, cur)=>{
+        if(!acc[cur.category]){
+            acc[cur.category]=0;
+        }
+        acc[cur.category] += cur.amount;
+        return acc;
+
+    },{})
+
+}
+
+console.log(ordzz());
+
+
+// Problem 25
+
+// Find the most frequent item.
+
+const fruits123 = [
+  "apple",
+  "banana",
+  "apple",
+  "apple",
+  "orange"
+];
+
+// Expected:
+
+// "apple"
+
+
+const fere = () =>{
+    const counts =fruits123.reduce((acc, cur)=>{
+       acc[cur] = (acc[cur] || 0) + 1;
+       return acc;
+    },{});
+
+    let maxFruit = null;
+    let maxCount = 0;
+
+    for (let fruit in counts){
+        if(counts[fruit] > maxCount){
+            maxCount = counts[fruit];
+            maxFruit = fruit;
+        }
+    }
+}
+
+console.log(fere());
+
+
+
+
+// Level 6: React Interview Level
+// Problem 26
+
+// Calculate cart total.
+
+const cart4 = [
+  {
+    price: 100,
+    quantity: 2
+  },
+  {
+    price: 200,
+    quantity: 1
+  }
+];
+
+// Expected:
+
+// 400
+
+
+const cart123 =()=>{
+    return cart4.reduce((acc, cur) =>{
+        const product = acc + cur.price * cur.quantity;
+        return product;
+    },0);
+}
+
+console.log(cart123());
+
+
+
+// Problem 27
+
+// Count completed tasks.
+
+const tasks = [
+  { completed: true },
+  { completed: false },
+  { completed: true }
+];
+
+// Expected:
+
+// 2
+
+const comTask =()=>{
+    return tasks.reduce((acc, cur) =>{
+        return  acc + (cur.completed ? 0 || 1)
+    },0);
+}
+
+console.log(conTask());
+
+
+// Problem 28
+
+// Create lookup table.
+
+const productsq = [
+  { id: 1, name: "Phone" },
+  { id: 2, name: "Laptop" }
+];
+
+// Expected:
+
+// {
+//   1: {
+//     id: 1,
+//     name: "Phone"
+//   },
+//   2: {
+//     id: 2,
+//     name: "Laptop"
+//   }
+// }
+
+const comTask1 =()=>{
+    return productsq.reduce((acc, cur) =>{
+       acc[cur.id] = cur;
+       return acc;
+    },{});
+}
+
+console.log(conTask1());
+
+
+
+
+// Problem 29
+
+// Get total revenue.
+
+const sales = [
+  { revenue: 5000 },
+  { revenue: 10000 },
+  { revenue: 7000 }
+];
+
+// Expected:
+
+// 22000
+
+const comTask2 =()=>{
+    return sales.reduce((acc, cur) =>{
+       return acc + cur.revenue;
+    },0);
+}
+
+console.log(conTask2());
+
+// Problem 30 (Most Asked)
+
+// Chain filter + map + reduce
+
+// const employees = [
+//   { name: "Sai", salary: 30000, active: true },
+//   { name: "John", salary: 40000, active: false },
+//   { name: "Krishna", salary: 50000, active: true }
+// ];
+
+// Tasks:
+
+// Get active employees
+// Extract salaries
+// Calculate total active salary
+
+// Expected:
+
+// 80000
+// Master Challenge (Frontend Developer Level)
+// const orders = [
+//   {
+//     id: 1,
+//     category: "Electronics",
+//     amount: 1000
+//   },
+//   {
+//     id: 2,
+//     category: "Books",
+//     amount: 500
+//   },
+//   {
+//     id: 3,
+//     category: "Electronics",
+//     amount: 2000
+//   },
+//   {
+//     id: 4,
+//     category: "Books",
+//     amount: 700
+//   }
+// ];
+
+// Create:
+
+// {
+//   Electronics: {
+//     count: 2,
+//     total: 3000
+//   },
+//   Books: {
+//     count: 2,
+//     total: 1200
+//   }
+// }
+
+// If you can comfortably solve Problems 1–20, you understand reduce() well.
+
+// If you can solve 21–30, you're at the level expected for most React/Frontend interviews.
+
+//If you can solve the Master Challenge without help, you've moved beyond beginner and are using reduce() the way experienced developers do.
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
