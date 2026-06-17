@@ -235,7 +235,7 @@ const products12 = [
 
 
 const cat =()=>{
-   products12.reduce((acc,cur)=>{
+   products12.reduce((acc,curr)=>{
     acc[curr.category] = (acc[curr.category] || 0) + 1;
     return acc;
    },{})
@@ -532,11 +532,11 @@ const tasks = [
 
 const comTask =()=>{
     return tasks.reduce((acc, cur) =>{
-        return  acc + (cur.completed ? 0 || 1)
+        return  acc + (cur.completed ? 0 : 1)
     },0);
 }
 
-console.log(conTask());
+console.log(comTask());
 
 
 // Problem 28
@@ -568,7 +568,7 @@ const comTask1 =()=>{
     },{});
 }
 
-console.log(conTask1());
+console.log(comTask1());
 
 
 
@@ -593,7 +593,7 @@ const comTask2 =()=>{
     },0);
 }
 
-console.log(conTask2());
+console.log(comTask2());
 
 // Problem 30 (Most Asked)
 
@@ -656,6 +656,1505 @@ console.log(conTask2());
 // If you can solve 21–30, you're at the level expected for most React/Frontend interviews.
 
 //If you can solve the Master Challenge without help, you've moved beyond beginner and are using reduce() the way experienced developers do.
+
+
+
+
+////////////////////////////////////////////////////////////////////////filter//////////////////////////////////////////////////////////////////////////////////////
+
+// # Filter Practice Roadmap
+
+
+// # Level 1 — Beginner
+
+// ## Problem 1
+
+// Keep numbers greater than 5.
+
+const numbersFil = [1,3,5,7,9];
+
+const prob1 = numbersFil.filter(
+    num => num > 5
+);
+
+console.log(prob1);
+
+
+// Expected:
+
+// ```js
+// [7,9]
+// ```
+
+// ---
+
+// ## Problem 2
+
+// Keep even numbers.
+
+ const Evnumbers = [1,2,3,4,5,6];
+
+ const eve = Evnumbers.filter(
+        num => num % 2 === 0
+    )
+
+ console.log(eve);
+
+
+// Expected:
+
+// ```js
+// [2,4,6]
+// ```
+
+// ---
+
+// ## Problem 3
+
+// Keep odd numbers.
+
+
+const oddnumbers = [1,2,3,4,5,6];
+
+const odd = oddnumbers.filter( num => num%2 !== 0);
+
+console.log(odd);
+
+
+// Expected:
+
+// ```js
+// [1,3,5]
+// ```
+
+// ---
+
+// ## Problem 4
+
+// Keep strings longer than 4 characters.
+
+const fruitsChar = [
+  "apple",
+  "kiwi",
+  "banana",
+  "fig"
+];
+
+
+const fruitChy = fruitsChar.filter(fruit => fruit.length > 4 );
+
+console.log(fruitChy);
+
+
+
+// Expected:
+
+// ```js
+// ["apple","banana"]
+// ```
+
+// ---
+
+// ## Problem 5
+
+// Keep positive numbers.
+
+const numbersPos = [-5,-2,0,3,10];
+
+const positive = numbersPos.filter (num => num > 0);
+
+console.log(positive);
+
+
+// Expected:
+
+// ```js
+// [3,10]
+// ```
+
+// ---
+
+// # Level 2 — Objects
+
+// ## Problem 6
+
+// Keep adults.
+
+const usersAdult = [
+  { name: "Sai", age: 25 },
+  { name: "John", age: 15 },
+  { name: "Krishna", age: 30 }
+];
+
+const adultcy = usersAdult.filter(n => n.age > 18)
+
+console.log(adultcy);
+
+
+// Expected:
+
+// ```js
+// [
+//   { name: "Sai", age: 25 },
+//   { name: "Krishna", age: 30 }
+// ]
+// ```
+
+// ---
+
+// ## Problem 7
+
+// Keep active users.
+
+
+const usersAc = [
+  { name: "Sai", active: true },
+  { name: "John", active: false },
+  { name: "Krishna", active: true }
+];
+
+const acts = usersAc.filter( c => c.active);
+
+console.log(acts);
+
+
+// Expected:
+
+// ```js
+// [
+//   { name: "Sai", active: true },
+//   { name: "Krishna", active: true }
+// ]
+// ```
+
+// ---
+
+// ## Problem 8
+
+// Keep products above ₹30,000.
+
+
+const productsFilter = [
+  { name: "Phone", price: 20000 },
+  { name: "Laptop", price: 50000 },
+  { name: "Tablet", price: 40000 }
+];
+
+const pro1 = productsFilter.filter(n => n.price > 30000);
+
+console.log(pro1)
+
+// Expected:
+
+// ```js
+// [
+//   { name: "Laptop", price: 50000 },
+//   { name: "Tablet", price: 40000 }
+// ]
+// ```
+
+// ---
+
+// ## Problem 9
+
+// Keep employees whose salary is above 50,000.
+
+
+const employeesFilter = [
+  { name: "A", salary: 30000 },
+  { name: "B", salary: 60000 },
+  { name: "C", salary: 70000 }
+];
+
+
+const em = employeesFilter.filter(c => c.salary > 50000);
+
+console.log(em);
+
+
+// ---
+
+// ## Problem 10
+
+// Keep students with grade A.
+
+const studen = [
+  { name: "Sai", grade: "A" },
+  { name: "John", grade: "B" },
+  { name: "Krishna", grade: "A" }
+];
+
+const st = studen.filter ( v => v.grade === "A");
+
+console.log(st);
+
+
+// ---
+
+// # Level 3 — Intermediate
+
+// ## Problem 11
+
+// Keep names starting with "S".
+
+const names = [
+  "Sai",
+  "John",
+  "Sam",
+  "Krishna"
+];
+
+
+const s = names.filter(u => u.startsWith('S'));
+
+console.log(s);
+
+// Expected:
+
+// ```js
+// ["Sai","Sam"]
+// ```
+
+// ---
+
+// ## Problem 12
+
+// Keep products in stock.
+
+const p9 = [
+  { name: "Phone", stock: true },
+  { name: "Laptop", stock: false },
+  { name: "Tablet", stock: true }
+];
+
+const u1 = p9.filter (i => i.stock !== false);
+
+console.log(u1);
+
+
+// ---
+
+// ## Problem 13
+
+// Keep orders above ₹1000.
+
+
+const orry = [
+  { amount: 500 },
+  { amount: 1500 },
+  { amount: 3000 }
+];
+
+const keep = orry.filter(O => O.amount > 1000);
+
+console.log(keep);
+
+
+// ---
+
+// ## Problem 14
+
+// Keep users whose age is between 18 and 30.
+
+const uszy = [
+  { age: 15 },
+  { age: 20 },
+  { age: 35 },
+  { age: 25 }
+];
+
+const q = uszy.filter(t => 18 < t.age && t.age < 30);
+
+console.log(q);
+
+
+// ---
+
+// ## Problem 15
+
+// Keep words containing letter "a".
+
+
+const words = [
+  "apple",
+  "kiwi",
+  "banana",
+  "orange"
+];
+
+const con = words.filter( w => w.includes('a'));
+
+console.log(con);
+
+// ---
+
+// # Level 4 — React Style Problems
+
+// ## Problem 16
+
+// Search Products
+
+
+const proy = [
+  "Laptop",
+  "Phone",
+  "Tablet",
+  "Camera"
+];
+
+const  p = proy.filter( a => a.toLowerCase().includes('ph'));
+
+console.log(p);
+
+
+// Search:
+
+// ```js
+// "ph"
+// ```
+
+// Expected:
+
+// ```js
+// ["Phone"]
+// ```
+
+// ---
+
+// ## Problem 17
+
+// Filter completed tasks.
+
+const tas = [
+  { title: "Task1", completed: true },
+  { title: "Task2", completed: false },
+  { title: "Task3", completed: true }
+];
+
+const qw = tas.filter( a => a.completed);
+
+console.log(qw);
+
+
+// ---
+
+// ## Problem 18
+
+// Filter unread notifications.
+
+const notifications = [
+  { read: true },
+  { read: false },
+  { read: false }
+];
+
+const tt = notifications.filter( h => h.read === false);
+console.log(tt);
+
+// ---
+
+// ## Problem 19
+
+// Filter online users.
+
+
+const use = [
+  { online: true },
+  { online: false },
+  { online: true }
+];
+
+const rr = use.filter(r => r.online);
+
+console.log(rr);
+
+// ---
+
+// ## Problem 20
+
+// Filter selected rows.
+
+
+const rows = [
+  { id: 1, selected: true },
+  { id: 2, selected: false },
+  { id: 3, selected: true }
+];
+
+const rr1 = rows.filter(r => r.selected);
+
+console.log(rr1);
+
+// This is very common in tables.
+
+// ---
+
+// # Level 5 — Advanced
+
+// ## Problem 21
+
+// Filter duplicate values.
+
+
+const num234 = [
+  1,
+  2,
+  2,
+  3,
+  4,
+  4,
+  5
+];
+
+
+const re = num234.filter((val,index,arr) => arr.indexOf(val) === index);
+
+console.log(re);
+
+// Expected:
+
+// ```js
+// [1,2,3,4,5]
+// ```
+
+// ---
+
+// ## Problem 22
+
+// Filter users who have both:
+
+// active === true
+//  AND
+// age > 18
+
+// const us = users.filter( b => b.active === true && b.age > 18)
+
+// console.log(us);
+
+
+// ---
+
+// ## Problem 23
+
+// Filter products:
+
+
+// price > 1000
+
+
+// AND
+
+
+// stock === true
+
+
+// const us1 = pros.filter( b => b.stock === true && b.price > 1000)
+
+// console.log(us1);
+
+// ---
+
+// ## Problem 24
+
+// Filter orders made in 2025.
+
+
+const orders33 = [
+  { year: 2024 },
+  { year: 2025 },
+  { year: 2025 }
+];
+
+const ot = orders33.filter(n => n.year === 2025);
+
+console.log(ot);
+
+
+// ---
+
+// ## Problem 25
+
+// Filter employees from IT department whose salary exceeds ₹70,000.
+
+// const emp00 = employees.filter(f => f.salary > 70000 && f.department === 'IT');
+
+// console.log(emp00);
+
+// ---
+
+// # Level 6 — Interview Level
+
+// ## Problem 26
+
+// Use:
+
+// ```js
+// filter + map
+// ```
+
+// Get names of active users.
+
+// ---
+
+// ## Problem 27
+
+// Use:
+
+// ```js
+// filter + reduce
+// ```
+
+// Calculate total salary of active employees.
+
+// ---
+
+// ## Problem 28
+
+// Use:
+
+// ```js
+// filter + map + reduce
+// ```
+
+// Calculate total price of products that are in stock.
+
+// ---
+
+// ## Problem 29
+
+// Find all users whose names contain `"sa"` (case insensitive).
+
+userzz = [
+'Sai',
+'sandeep',
+'John',
+'krishna' ];
+
+const uu = userzz.filter( c => c.toLowerCase().includes("sa"));
+console.log(uu);
+
+// Expected:
+
+// ```js
+// ["Sai","sandeep"]
+// ```
+
+// ---
+
+// ## Problem 30 (Frontend Interview Favorite)
+
+
+const applicants = [
+  {
+    name: "Sai",
+    status: "Joined",
+    score: 90
+  },
+  {
+    name: "John",
+    status: "Pending",
+    score: 75
+  },
+  {
+    name: "Krishna",
+    status: "Joined",
+    score: 85
+  }
+];
+
+// Get names of applicants:
+
+// * status = Joined
+// * score > 80
+
+
+  const ap = applicants.filter(
+    a => a.status === 'Joined' && a.score> 80
+).map(a =>a.name);
+
+  console.log(ap);
+
+// Expected:
+
+// ```js
+// ["Sai", "Krishna"]
+// ```
+
+// ---
+
+// ### Master Challenge
+
+
+const employees99 = [
+  {
+    name: "Sai",
+    department: "IT",
+    salary: 60000,
+    active: true
+  },
+  {
+    name: "John",
+    department: "HR",
+    salary: 40000,
+    active: true
+  },
+  {
+    name: "Krishna",
+    department: "IT",
+    salary: 80000,
+    active: false
+  },
+  {
+    name: "Ravi",
+    department: "IT",
+    salary: 90000,
+    active: true
+  }
+];
+
+
+// Get names of employees who:
+
+// * belong to IT
+// * active
+// * salary > 70000
+
+
+  const ap1 = employees99.filter(
+    a => a.department === 'IT' && a.active === true && a.salary > 70000
+).map(a => a.name);
+
+  console.log(ap1);
+
+
+
+
+// Expected:
+
+// ```js
+// ["Ravi"]
+// ```
+
+// If you can solve Problems **1–20**, you're comfortable with `filter()`.
+
+// If you can solve **21–30**, you're at the level expected in most React and Frontend interviews.
+
+
+//=================================================== Map ===========================================================
+
+
+
+// # MAP PRACTICE ROADMAP
+
+// # Level 1 — Beginner
+
+// ## Problem 1
+
+// Double every number.
+
+
+const numbers88 = [1,2,3,4];
+
+const addi= numbers88.map(num => num *2);
+ console.log(addi);
+
+// Expected:
+
+// ```js
+// [2,4,6,8]
+// ```
+
+// ---
+
+// ## Problem 2
+
+// Triple every number.
+
+// ```js
+// const numbers = [1,2,3,4];
+// ```
+
+// Expected:
+
+// ```js
+// [3,6,9,12]
+// ```
+
+// ---
+
+// ## Problem 3
+
+// Add 10 to every number.
+
+const numbers77 = [1,2,3,4];
+
+const bcc = numbers77.map(num => num + 10);
+
+console.log(bcc);
+
+
+// Expected:
+
+// ```js
+// [11,12,13,14]
+// ```
+
+// ---
+
+// ## Problem 4
+
+// Convert all names to uppercase.
+
+
+const names55 = [
+  "sai",
+  "john",
+  "krishna"
+];
+
+const u = names55.map (u => u.toUpperCase());
+console.log(u);
+
+
+// Expected:
+
+// ```js
+// [
+//   "SAI",
+//   "JOHN",
+//   "KRISHNA"
+// ]
+// ```
+
+// ---
+
+// ## Problem 5
+
+// Get length of every word.
+
+
+const words22 = [
+  "apple",
+  "banana",
+  "kiwi"
+];
+
+const w = words22.map( y => y.length);
+
+console.log(w);
+
+
+// Expected:
+
+// ```js
+// [5,6,4]
+// ```
+
+// ---
+
+// # Level 2 — Objects
+
+// ## Problem 6
+
+// Extract all names.
+
+const users55 = [
+  { name: "Sai" },
+  { name: "John" },
+  { name: "Krishna" }
+];
+
+const e = users55.map(z => z.name);
+
+console.log(e);
+
+
+// Expected:
+
+// ```js
+// [
+//   "Sai",
+//   "John",
+//   "Krishna"
+// ]
+// ```
+
+// ---
+
+// ## Problem 7
+
+// Extract all ages.
+
+
+const users88 = [
+  { age: 25 },
+  { age: 30 },
+  { age: 35 }
+];
+
+
+const e1 = users88.map(z => z.age);
+
+console.log(e1);
+
+// Expected:
+
+// ```js
+// [25,30,35]
+// ```
+
+// ---
+
+// ## Problem 8
+
+// Extract all product prices.
+
+
+const products991 = [
+  { price: 1000 },
+  { price: 2000 },
+  { price: 3000 }
+];
+
+const e3 = products991.map(z => z.price);
+
+console.log(e3);
+
+
+// Expected:
+
+// ```js
+// [1000,2000,3000]
+// ```
+
+// ---
+
+// ## Problem 9
+
+// Create a new object with name only.
+
+
+const users67 = [
+  {
+    name: "Sai",
+    age: 25
+  },
+  {
+    name: "John",
+    age: 30
+  }
+];
+
+const e4 = users67.map(z => ({name : z.name}));
+
+console.log(e4);
+
+
+// Expected:
+
+// ```js
+// [
+//   { name: "Sai" },
+//   { name: "John" }
+// ]
+// ```
+
+// ---
+
+// ## Problem 10
+
+// Create full names.
+
+
+const users000 = [
+  {
+    firstName: "Sai",
+    lastName: "Krishna"
+  },
+  {
+    firstName: "John",
+    lastName: "Doe"
+  }
+];
+
+const e5 = users000.map(z => z.firstName + " " + z.lastName);
+
+console.log(e5);
+
+
+// Expected:
+
+// ```js
+// [
+//   "Sai Krishna",
+//   "John Doe"
+// ]
+// ```
+
+// ---
+
+// # Level 3 — Intermediate
+
+// ## Problem 11
+
+// Convert prices into discounted prices.
+
+
+const prices = [
+  100,
+  200,
+  300
+];
+
+const e6 = prices.map(z => (z - (z * (10/100))));
+
+console.log(e6);
+
+
+
+// 10% discount.
+
+// Expected:
+
+// ```js
+// [90,180,270]
+// ```
+
+// ---
+
+// ## Problem 12
+
+// Convert ages into age groups.
+
+
+const age = [
+  10,
+  25,
+  60
+];
+
+
+const e7 = age.map( z => {
+    if(z <= 10){
+        return "Child";
+    }else if(z >= 25 && z < 60){
+         return "Adult";
+    }else if(z >= 60);{
+       return "Senior";  
+    }
+});
+
+console.log(e7);
+
+
+
+// Expected:
+
+// ```js
+// [
+//   "Child",
+//   "Adult",
+//   "Senior"
+// ]
+// ```
+
+// ---
+
+// ## Problem 13
+
+// Convert users into JSX-like strings.
+
+
+const us12 = [
+  { name: "Sai" },
+  { name: "John" }
+];
+
+const e8 = us12.map(z => ([`<li>${z.name}</li>`]));
+
+console.log(e8);
+
+// Expected:
+
+// ```js
+// [
+//   "<li>Sai</li>",
+//   "<li>John</li>"
+// ]
+// ```
+
+// ---
+
+// ## Problem 14
+
+// Add `isAdult` property.
+
+// ```js
+// const users = [
+//   {
+//     name: "Sai",
+//     age: 25
+//   },
+//   {
+//     name: "John",
+//     age: 15
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     name: "Sai",
+//     age: 25,
+//     isAdult: true
+//   },
+//   {
+//     name: "John",
+//     age: 15,
+//     isAdult: false
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 15
+
+// Add index to each item.
+
+// ```js
+// const fruits = [
+//   "apple",
+//   "banana",
+//   "orange"
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     id: 0,
+//     name: "apple"
+//   },
+//   {
+//     id: 1,
+//     name: "banana"
+//   },
+//   {
+//     id: 2,
+//     name: "orange"
+//   }
+// ]
+// ```
+
+// ---
+
+// # Level 4 — React Style
+
+// ## Problem 16
+
+// Create option objects.
+
+// ```js
+// const cities = [
+//   "Hyderabad",
+//   "Bangalore",
+//   "Chennai"
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     label: "Hyderabad",
+//     value: "Hyderabad"
+//   },
+//   {
+//     label: "Bangalore",
+//     value: "Bangalore"
+//   },
+//   {
+//     label: "Chennai",
+//     value: "Chennai"
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 17
+
+// Convert API response to dropdown format.
+
+// ```js
+// const jobs = [
+//   {
+//     id: 1,
+//     title: "Frontend"
+//   },
+//   {
+//     id: 2,
+//     title: "Backend"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     label: "Frontend",
+//     value: 1
+//   },
+//   {
+//     label: "Backend",
+//     value: 2
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 18
+
+// Create card data.
+
+// ```js
+// const products = [
+//   {
+//     id: 1,
+//     name: "Phone"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     key: 1,
+//     title: "Phone"
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 19
+
+// Get all email addresses.
+
+// ```js
+// const users = [
+//   {
+//     email: "a@test.com"
+//   },
+//   {
+//     email: "b@test.com"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   "a@test.com",
+//   "b@test.com"
+// ]
+// ```
+
+// ---
+
+// ## Problem 20
+
+// Convert user objects into React keys.
+
+// ```js
+// const users = [
+//   {
+//     id: 1,
+//     name: "Sai"
+//   },
+//   {
+//     id: 2,
+//     name: "John"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     key: 1,
+//     name: "Sai"
+//   },
+//   {
+//     key: 2,
+//     name: "John"
+//   }
+// ]
+// ```
+
+// ---
+
+// # Level 5 — Advanced
+
+// ## Problem 21
+
+// Convert array into HTML strings.
+
+// ```js
+// const products = [
+//   "Phone",
+//   "Laptop"
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   "<div>Phone</div>",
+//   "<div>Laptop</div>"
+// ]
+// ```
+
+// ---
+
+// ## Problem 22
+
+// Create usernames.
+
+// ```js
+// const users = [
+//   "Sai Krishna",
+//   "John Doe"
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   "saikrishna",
+//   "johndoe"
+// ]
+// ```
+
+// ---
+
+// ## Problem 23
+
+// Convert order amounts into tax-inclusive amounts.
+
+// ```js
+// const amounts = [
+//   1000,
+//   2000,
+//   3000
+// ];
+// ```
+
+// Add 18% GST.
+
+// ---
+
+// ## Problem 24
+
+// Transform products.
+
+// ```js
+// const products = [
+//   {
+//     name: "Phone",
+//     price: 1000
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     name: "Phone",
+//     formattedPrice: "₹1000"
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 25
+
+// Create employee summary strings.
+
+// ```js
+// const employees = [
+//   {
+//     name: "Sai",
+//     department: "IT"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   "Sai works in IT"
+// ]
+// ```
+
+// ---
+
+// # Level 6 — Interview Level
+
+// ## Problem 26
+
+// Use:
+
+// ```js
+// filter + map
+// ```
+
+// Get names of active users.
+
+// ---
+
+// ## Problem 27
+
+// Use:
+
+// ```js
+// map + reduce
+// ```
+
+// Calculate total salary.
+
+// ---
+
+// ## Problem 28
+
+// Use:
+
+// ```js
+// filter + map + reduce
+// ```
+
+// Calculate total salary of active employees.
+
+// ---
+
+// ## Problem 29
+
+// Convert API response into table rows.
+
+// ```js
+// const applicants = [
+//   {
+//     id: 1,
+//     name: "Sai",
+//     status: "Joined"
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     key: 1,
+//     candidateName: "Sai",
+//     candidateStatus: "Joined"
+//   }
+// ]
+// ```
+
+// ---
+
+// ## Problem 30 (Frontend Interview Favorite)
+
+// ```js
+// const applicants = [
+//   {
+//     name: "Sai",
+//     score: 90
+//   },
+//   {
+//     name: "John",
+//     score: 75
+//   }
+// ];
+// ```
+
+// Expected:
+
+// ```js
+// [
+//   {
+//     name: "Sai",
+//     result: "Pass"
+//   },
+//   {
+//     name: "John",
+//     result: "Fail"
+//   }
+// ]
+// ```
+
+// ---
+
+// # Master Challenge
+
+// ```js
+// const employees = [
+//   {
+//     id: 1,
+//     name: "Sai",
+//     department: "IT",
+//     salary: 60000
+//   },
+//   {
+//     id: 2,
+//     name: "John",
+//     department: "HR",
+//     salary: 50000
+//   }
+// ];
+// ```
+
+// Transform into:
+
+// ```js
+// [
+//   {
+//     employeeId: 1,
+//     employeeName: "Sai",
+//     department: "IT",
+//     yearlySalary: 720000
+//   },
+//   {
+//     employeeId: 2,
+//     employeeName: "John",
+//     department: "HR",
+//     yearlySalary: 600000
+//   }
+// ]
+// ```
 
 
 
