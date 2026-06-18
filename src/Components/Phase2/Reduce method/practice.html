@@ -1689,18 +1689,28 @@ console.log(e8);
 
 // Add `isAdult` property.
 
-// ```js
-// const users = [
-//   {
-//     name: "Sai",
-//     age: 25
-//   },
-//   {
-//     name: "John",
-//     age: 15
-//   }
-// ];
-// ```
+
+const users44 = [
+  {
+    name: "Sai",
+    age: 25
+  },
+  {
+    name: "John",
+    age: 15
+  }
+];
+
+
+const us2 = users44.map( u => {
+  return {
+    ...u, isAdult: u.age > 18
+  }
+}
+)
+
+console.log(us2);
+
 
 // Expected:
 
