@@ -1735,13 +1735,22 @@ console.log(us2);
 
 // Add index to each item.
 
-// ```js
-// const fruits = [
-//   "apple",
-//   "banana",
-//   "orange"
-// ];
-// ```
+const fru = [
+  "apple",
+  "banana",
+  "orange"
+];
+
+const f = () => {
+  return fru.map((item, index)=>{
+    return {
+      id:index,
+      name:item
+    }
+  });
+};
+
+console.log(f());
 
 // Expected:
 
