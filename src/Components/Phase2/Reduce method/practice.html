@@ -2048,7 +2048,9 @@ const amounts = [
 ];
 
 
-const gst = amounts.map((a) => return{a += 18%});
+const gst = amounts.map(a => a + a * 0.18 );
+
+console.log(gst);
 
 // Add 18% GST.
 
@@ -2058,14 +2060,21 @@ const gst = amounts.map((a) => return{a += 18%});
 
 // Transform products.
 
-// ```js
-// const products = [
-//   {
-//     name: "Phone",
-//     price: 1000
-//   }
-// ];
-// ```
+const produ = [
+  {
+    name: "Phone",
+    price: 1000
+  }
+];
+
+const ui = produ.map(({name,price}) => {
+  return {
+      name : name,
+      formattedPrice : `${price}`
+  };
+});
+
+console.log(ui);
 
 // Expected:
 
@@ -2084,14 +2093,20 @@ const gst = amounts.map((a) => return{a += 18%});
 
 // Create employee summary strings.
 
-// ```js
-// const employees = [
-//   {
-//     name: "Sai",
-//     department: "IT"
-//   }
-// ];
-// ```
+
+const employees00 = [
+  {
+    name: "Sai",
+    department: "IT"
+  }
+];
+
+const yu = employees00.map(({name,department}) =>{
+  return `${name} works in ${department}`;
+  });
+
+console.log(yu);
+
 
 // Expected:
 
@@ -2114,6 +2129,8 @@ const gst = amounts.map((a) => return{a += 18%});
 // ```
 
 // Get names of active users.
+
+
 
 // ---
 
@@ -2171,18 +2188,26 @@ const gst = amounts.map((a) => return{a += 18%});
 
 // ## Problem 30 (Frontend Interview Favorite)
 
-// ```js
-// const applicants = [
-//   {
-//     name: "Sai",
-//     score: 90
-//   },
-//   {
-//     name: "John",
-//     score: 75
-//   }
-// ];
-// ```
+const applica = [
+  {
+    name: "Sai",
+    score: 90
+  },
+  {
+    name: "John",
+    score: 75
+  }
+];
+
+
+const ar = applica.map(({name,score})=>{
+  return {
+    name : name,
+    result : score >= 90 ? "Pass" : "Fail"
+  }});
+
+console.log(ar)
+
 
 // Expected:
 
@@ -2203,22 +2228,32 @@ const gst = amounts.map((a) => return{a += 18%});
 
 // # Master Challenge
 
-// ```js
-// const employees = [
-//   {
-//     id: 1,
-//     name: "Sai",
-//     department: "IT",
-//     salary: 60000
-//   },
-//   {
-//     id: 2,
-//     name: "John",
-//     department: "HR",
-//     salary: 50000
-//   }
-// ];
-// ```
+
+const employees999 = [
+  {
+    id: 1,
+    name: "Sai",
+    department: "IT",
+    salary: 60000
+  },
+  {
+    id: 2,
+    name: "John",
+    department: "HR",
+    salary: 50000
+  }
+];
+
+const trans = employees999.map(({id,name,department,salary})=>{
+   return {
+    employeeId : id,
+    employeeName: name,
+    department: department,
+    yearlySalary: salary*12
+   };
+});
+
+console.log(trans)
 
 // Transform into:
 
