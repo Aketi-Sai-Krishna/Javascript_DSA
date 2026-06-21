@@ -1736,8 +1736,8 @@ console.log(us2);
 // Add index to each item.
 
 const fru = [
-  "appl e",
-  "banan a", 
+  "apple",
+  "banana", 
   "orange" 
 ];
 
@@ -1779,13 +1779,24 @@ console.log(f());
 
 // Create option objects.
 
-// ```js
-// const cities = [
-//   "Hyderabad",
-//   "Bangalore",
-//   "Chennai"
-// ];
-// ```
+
+const cities = [
+  "Hyderabad",
+  "Bangalore",
+  "Chennai"
+];
+
+const f1 = () => {
+  return cities.map((item)=>{
+    return {
+      label:item,
+      value:item
+    }
+  });
+};
+
+console.log(f1()); 
+
 
 // Expected:
 
@@ -1812,18 +1823,29 @@ console.log(f());
 
 // Convert API response to dropdown format.
 
-// ```js
-// const jobs = [
-//   {
-//     id: 1,
-//     title: "Frontend"
-//   },
-//   {
-//     id: 2,
-//     title: "Backend"
-//   }
-// ];
-// ```
+const jobs = [
+  {
+    id: 1,
+    title: "Frontend"
+  },
+  {
+    id: 2,
+    title: "Backend"
+  }
+];
+
+const f3 = () => {
+  return jobs.map(({id,title})=>{
+    return {
+      label: title,
+      value: id
+    }
+  });
+};
+
+console.log(f3()); 
+
+
 
 // Expected:
 
@@ -1846,14 +1868,26 @@ console.log(f());
 
 // Create card data.
 
-// ```js
-// const products = [
-//   {
-//     id: 1,
-//     name: "Phone"
-//   }
-// ];
-// ```
+
+const prod1 = [
+  {
+    id: 1,
+    name: "Phone"
+  }
+];
+
+const f4 = () => {
+   return prod1.map(({id,name})=>{
+    return {
+      key: id,
+      title: name
+    };
+   })
+};
+
+console.log(f4()); 
+
+
 
 // Expected:
 
@@ -1872,16 +1906,22 @@ console.log(f());
 
 // Get all email addresses.
 
-// ```js
-// const users = [
-//   {
-//     email: "a@test.com"
-//   },
-//   {
-//     email: "b@test.com"
-//   }
-// ];
-// ```
+
+const us = [
+  {
+    email: "a@test.com"
+  },
+  {
+    email: "b@test.com"
+  }
+];
+
+const u4 = () => {
+   return us.map(({email})=>{
+       email
+   });
+};
+
 
 // Expected:
 
@@ -1898,18 +1938,28 @@ console.log(f());
 
 // Convert user objects into React keys.
 
-// ```js
-// const users = [
-//   {
-//     id: 1,
-//     name: "Sai"
-//   },
-//   {
-//     id: 2,
-//     name: "John"
-//   }
-// ];
-// ```
+
+const us3 = [
+  {
+    id: 1,
+    name: "Sai"
+  },
+  {
+    id: 2,
+    name: "John"
+  }
+];
+
+
+const u9=()=>{
+  return us3.map(({id , name}) => {
+    return{
+      key: id,
+      name: name
+    };
+  })
+}
+
 
 // Expected:
 
@@ -1934,12 +1984,18 @@ console.log(f());
 
 // Convert array into HTML strings.
 
-// ```js
-// const products = [
-//   "Phone",
-//   "Laptop"
-// ];
-// ```
+const products90 = [
+  "Phone",
+  "Laptop"
+];
+
+const unf = () => {
+  return products90.map((item)=>{
+    return `<div> ${item} </div>`;
+  });
+};
+
+console.log(unf());
 
 // Expected:
 
