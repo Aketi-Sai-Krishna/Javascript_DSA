@@ -2012,12 +2012,18 @@ console.log(unf());
 
 // Create usernames.
 
-// ```js
-// const users = [
-//   "Sai Krishna",
-//   "John Doe"
-// ];
-// ```
+
+const user33 = [
+  "Sai Krishna",
+  "John Doe"
+];
+
+const u3 = user33.map((name)=>{
+  return name.replace(/\s+/g, "").toLowerCase();
+});
+
+console.log(u3);
+
 
 // Expected:
 
@@ -2034,13 +2040,15 @@ console.log(unf());
 
 // Convert order amounts into tax-inclusive amounts.
 
-// ```js
-// const amounts = [
-//   1000,
-//   2000,
-//   3000
-// ];
-// ```
+
+const amounts = [
+  1000,
+  2000,
+  3000
+];
+
+
+const gst = amounts.map((a) => return{a += 18%});
 
 // Add 18% GST.
 
