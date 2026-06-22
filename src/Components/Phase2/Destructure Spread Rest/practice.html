@@ -248,20 +248,40 @@
             //26
 
             const stud3 = {
-              name: 'sa2',
-              class1 : 12,
-              school : "scts",
-              address : {
+              name123: 'sa2',
+              class123 : 12,
+              school123 : "scts",
+              address123 : {
                 house : 89,
                 city1 : "rer2222yesr"
               }
             }
 
-            const req = (a) => {
-              stud3.filter( a => a.name &&  a.class1 && a.school)
-            }
+            // const {name123, school123} = stud3
+            // console.log(name123);
 
-            console.log(req());
+            //28
+
+            const {name123 , ...remaining12} = stud3;
+
+            console.log(name123);
+            console.log(remaining12);
+
+            //29
+
+            const arr1 = [
+              [1, 2, 3],
+              [4, 5, 6]
+            ];
+
+            const arr2 = [
+              ["apple", "banana"],
+              ["carrot", "potato", "tomato"]
+            ];
+
+            const nested = [...arr1, ...arr2];
+
+            console.log(nested);
 
 
 
