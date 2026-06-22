@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+      
+  ## Beginner (1-15)<br/>
+    1. Destructure `[10,20,30]` into `a`, `b`, `c`.<br/>
+    2. Print only the first element using destructuring.<br/>
+    3. Extract first and third values from an array.<br/>
+    4. Use a default value in array destructuring.<br/>
+    5. Destructure `{name:"Sai", age:25}`.<br/>
+    6. Print only `name` from an object.<br/>
+    7. Rename `name` to `userName`.<br/>
+    8. Use a default value for `city`.<br/>
+    9. Copy an array using spread.<br/>
+    10. Copy an object using spread.<br/>
+    11. Merge two arrays.<br/>
+    12. Merge two objects.<br/>
+    13. Add a new element to an array using spread.<br/>
+    14. Update an object property using spread.<br/>
+    15. Use rest to collect remaining array values.<br/>
+    <br/>
+    <br/><br/>
+    <br/>
+
+    Intermediate (16-30)<br/>
+    Extract first two elements and store remaining elements using rest.<br/>
+    Destructure a nested object and extract city.<br/>
+    Merge three arrays into one.<br/>
+    Create a function that accepts unlimited numbers using rest.<br/>
+    Return the sum of all numbers using rest parameters.<br/>
+    Find the largest number from rest parameters.<br/>
+    Remove one property from an object using destructuring + rest.<br/>
+    Clone an object and update one property.<br/>
+    Clone an array and add multiple elements.<br/>
+    Merge two student objects.<br/>
+    Swap two variables using destructuring.<br/>
+    Extract only required properties from a user object.<br/>
+    Use rest with object destructuring.<br/>
+    Merge nested arrays using spread.<br/>
+    Explain why spread creates only a shallow copy.<br/>
+  <script>
+
+    //1
+    const arr = [10,20,30];
+     const [a,b,c] = arr;
+     console.log(arr);
+     console.log(a,b,c);
+
+     //2
+
+     const ir = [arr[0]]
+     console.log(ir);
+
+     console.log(a);
+
+     //3
+
+     console.log(a,c);
+
+     //4
+      const arr6 = [10,20,30];
+     const [a7,b7,c7,g7=80] = arr6;
+       console.log(g7);
+
+    //5.6.7.8
+    const user = {name:"Saiu", age:25};
+
+    const {name:userName,age, city = "kkd"} = user;
+
+    console.log(userName);
+    console.log(city);
+
+    //9 
+      const arr0 = [10,20,30];
+      const copy = [...arr0];
+      console.log(copy);
+
+    //10
+
+       const use88r = {name:"Saiu", age:25};
+        const cop = {...use88r};
+        console.log(cop);
+
+    //11
+
+     const as = [19,13];
+     const bh = [34, 54];
+
+     const bn = [...as, ...bh];
+     console.log(bn);
+
+     //12
+            const use8r = {name1:"Saiu", age1:25};
+            const use888r = {name:"Sai", age:5};
+            const rc = {...use8r, ...use888r};
+            console.log(rc);
+      
+     //13
+
+          const bfh = [34, 54];
+          const add = [...bfh, 23];
+          console.log(add);
+
+      //14
+
+      const r8r = {name1:"Saiu", age1:25};
+      const rry = {...r8r, age1:77 };
+      console.log(rry);
+
+      //15
+
+           const as2 = [1,24,3,35,9,13];
+
+           const [first, ...remaining] = as2;
+
+           console.log(first);
+           console.log(remaining);
+      
+           //16.
+             const arr33 = [10,20,30,35,34,23];
+
+             const [first1 , second, ...remaining1] = arr33
+
+             console.log(first1);
+             console.log(second);
+             console.log(remaining1)
+
+             // 17
+
+             const use55 = {
+              name: 'sa',
+              class1 : 12,
+              school : "scts",
+              address : {
+                house : 89,
+                city1 : "rer2222yesr"
+              }
+             }
+
+             const {name,class1,school, address:{ city1 }} = use55;
+
+             console.log(city1);
+
+             //18
+
+             const one = [1,2,3];
+             const second2 = [3,4,5]; 
+             const three3 = [5,6,7,8];
+
+             const combine = [...one, ...second2, ...three3];
+             console.log(combine);
+
+             //19.
+
+             const fun = (...numbers12)=>{
+                return numbers12.reduce ((acc, cur) => acc + cur,0)
+             }
+
+             console.log(fun(1,2));
+             console.log(fun(1,2,5,6,3,3,6));
+
+             //20 largest number
+
+             const lar = (...num)=> {
+              return num.reduce((acc, cur)=> acc > cur ? acc : cur , 0);
+             }
+
+             console.log(lar(1,2));
+               console.log(lar(1,2,34,3534,345356));
+              
+            //21
+
+            const ob = {
+              name: 'sa',
+              class1 : 12,
+              school : "scts",
+              address : {
+                house : 89,
+                city1 : "rer2222yesr"
+              }
+            }
+
+            const rr = () =>{
+              const {name , ...remaining} = ob;
+              return {name , remaining};
+            }
+
+            console.log(rr());
+
+            //22
+
+            const ob1 = {...ob , school : "sasi"};
+
+            console.log(ob1);
+
+            //23
+
+              const one1 = [1,2,3];
+
+              const copyOne1 = [...one1];
+
+              const addingEle = [...copyOne1, 7899,54,35];
+              console.log(addingEle);
+
+              //24
+
+            const stud1 = {
+              name: 'sa1',
+              class1 : 12,
+              school : "scts",
+              address : {
+                house : 89,
+                city1 : "rer2222yesr"
+              }
+            }
+
+            const stud2 = {
+              name: 'sa2',
+              class1 : 12,
+              school : "scts",
+              address : {
+                house : 89,
+                city1 : "rer2222yesr"
+              }
+            }
+
+            const merger = {stud1, stud2};
+
+            console.log(merger);
+
+            //25
+
+            const a2 = 10;
+            const b2 = 20;
+            
+            const swap = (a2, b2) =>{
+              return [a2, b2] = [b2 , a2]
+            }
+
+            console.log(swap(3,4));
+
+            //26
+
+            const stud3 = {
+              name: 'sa2',
+              class1 : 12,
+              school : "scts",
+              address : {
+                house : 89,
+                city1 : "rer2222yesr"
+              }
+            }
+
+            const req = (a) => {
+              stud3.filter( a => a.name &&  a.class1 && a.school)
+            }
+
+            console.log(req());
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+    
+
+     
+
+
+  </script>
+  
+</body>
+</html>
