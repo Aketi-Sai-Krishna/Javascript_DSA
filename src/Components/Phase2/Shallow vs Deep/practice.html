@@ -350,9 +350,7 @@ const user8 = {
   }
 };
 
-const copy8 = {...user8};
-
-copy8.address.city="Hyderabad"
+const copy8 = {...user8, address:{...user8.address, city : "Hyd"}};
 
 
 
