@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+If you can solve and explain these 12 questions in your own words, you will have a stronger understanding of shallow/deep copy than many React developers with 1–2 years of experience. The key is not just writing the code—it's explaining *why* the output happens. That's what interviewers look for.
+
+</head>
+<body>
+    <script>
+
+ //Perfect. Since your goal is **React + Interview Preparation**, I'll give questions that gradually build your understanding of **references → shallow copy → deep copy → React state updates**.
+
+// 1. Predict the Output
+
+
+const user1 = {
+  name: "Sai"
+};
+
+const user2 = user1;
+
+user2.name = "Krishna";
+
+console.log(user1.name);
+
+
+// ### Questions
+
+// * What is the output?
+
+//    Krishna
+
+// * Why?
+
+//user1 and user2 has same references, so when user2 name changes automatically  user1 name also chnages.
+
+
+// ## 2. Predict the Output
+
+
+const arr1 = [1, 2, 3];
+
+const arr2 = arr1;
+
+arr2.push(4);
+
+console.log(arr1);
+
+
+// ### Questions
+
+// * What is the output?
+   [1, 2, 3, 4];
+
+// * Why?
+
+   //arr1 and arr2 has same reference point so when arr2 changes automatically  arr1 also chnages.
+
+
+// ## 3. Create a Shallow Copy
+
+// Create a copy of:
+
+const student = {
+  name: "Sai",
+  age: 25
+};
+
+const copy  = {
+    ...student,
+    age : 30,
+};
+
+console.log(copy.age);
+
+// Then:
+
+// copy.age = 30;
+
+
+// Print both objects.
+
+console.log(student);
+console.log(copy);
+
+// ### Questions
+
+// * Did the original object change?
+//No
+// * Why?
+//because the shallow copy creates the separate object and changes in the created copy does not effect the original one.
+
+// ---
+
+// # Level 2 — Intermediate
+
+// ## 4. Predict the Output
+
+
+const user = {
+  name: "Sai",
+  address: {
+    city: "Vizag"
+  }
+};
+
+const copy1 = {
+  ...user
+};
+
+copy1.address.city = "Hyderabad";
+
+console.log(user.address.city);
+
+
+// ### Questions
+
+// * Output?
+//  Hyderabad
+// * Why?
+// shallow copy has independent referneces upto the intial properties of the object, but for nested properties still shallow copy has shared references only
+
+// ---
+
+// ## 5. Compare References
+
+// ```js
+const user3 = {
+  name: "Sai",
+  address: {
+    city: "Vizag"
+  }
+};
+
+const copy3 = {
+  ...user3
+};
+
+console.log(user3 === copy3);
+console.log(user3.address === copy3.address);
+// ```
+
+// ### Questions
+
+// * Output?
+false
+true
+// * Explain both comparisons.
+//we cannot compare two different objects and even these object references are different 
+
+//shallow copy has independent referneces upto the intial properties of the object, but for nested properties still shallow copy has shared references only
+
+
+// ---
+
+// ## 6. Create a Deep Copy
+
+// Given:
+
+// ```js
+const student4 = {
+  name: "Sai",
+  marks: {
+    math: 90
+  }
+};
+// ```
+
+// Create a deep copy.
+
+const deep = structuredClone(student4);
+
+deep.marks.math = 100;
+
+console.log(deep);
+
+// Update:
+
+
+
+// ```js
+// copy.marks.math = 100;
+// ```
+
+// Print both objects.
+
+console.log(deep);
+console.log(student4);
+
+// ### Goal
+
+// Original should remain unchanged.
+
+// ---
+
+// # Level 3 — Advanced
+
+// ## 7. Fix the Bug
+
+// ```js
+const user5 = {
+  name: "Sai",
+  address: {
+    city: "Vizag"
+  }
+};
+
+// const copy5 = {
+//   ...user5
+// };
+
+// copy5.address.city = "Hyderabad";
+// ```
+
+// ### Task
+
+// Modify the code so that:
+
+// ```js
+// user5.address.city
+// ```
+
+// remains:
+
+// ```js
+// "Vizag"
+// ```
+
+// without using `structuredClone()`.
+
+const deep5 =  JSON.parse(JSON.stringify(user5));
+deep5.address.city = "Hyderabad";
+
+console.log(deep5);
+console.log(user5);
+
+// ---
+
+// ## 8. Shallow or Deep?
+
+// For each statement, write:
+
+// ```text
+// Shallow Copy
+// Deep Copy
+// Assignment
+// ```
+
+// ### A
+
+// ```js
+// const copy = user; //assignment
+// ```
+
+// ### B
+
+// ```js
+// const copy = {  //shallow copy
+//   ...user
+// };
+// ```
+
+// ### C
+
+// ```js
+// const copy = structuredClone(user); //deep copy
+// ```
+
+// ---
+
+// # Level 4 — React Interview Style
+
+// ## 9. Why is this wrong?
+
+// const [user6, setUser6] = useState({
+//   name: "Sai",
+//   age: 25
+// });
+
+// user6.age = 30;
+
+// setUser6(user6);
+// ```
+
+// ### Questions
+
+// * Why is this bad?
+//This changes the existing state object directly. React won’t detect this change properly because it relies on immutability to know when to re-render.
+
+
+// * How would you fix it?
+// setUser6({...user6, age: 30})
+// ---
+
+// ## 10. Update Nested State
+
+// Given:
+
+// ```js
+// const [user7, setUser7] = useState({
+//   name: "Sai",
+//   address: {
+//     city: "Vizag"
+//   }
+// });
+// // ```
+
+// // Update city to:
+
+// // ```js
+// // "Hyderabad"
+// // ```
+ 
+// setUser7({
+//     ...user7,
+//     address:{
+//         ...user7.address,
+//         city: "hyderabad"
+//     }
+// });
+
+// without mutating the original state.
+
+// ---
+
+// # Bonus Interview Question (Very Common)
+
+// ## 11.
+
+// True or False?
+
+// ```text
+// Spread operator creates a deep copy.
+
+//false
+
+// ```
+
+// Explain your answer with an example.
+
+const user8 = {
+  name: "Sai",
+  address: {
+    city: "Vizag"
+  }
+};
+
+const copy8 = {...user8};
+
+copy8.address.city="Hyderabad"
+
+
+
+console.log(user8);
+console.log(copy8);
+
+
+
+// ---
+
+// # Master Question
+
+// ## 12.
+
+// Explain:
+
+// ```text
+// Reference
+// Assignment
+// Shallow Copy
+// Deep Copy
+// ```
+
+// using one real-life example.
+
+// ---
+
+
+
+       
+    </script>
+</body>
+</html>
