@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <scirpt>
+
+---
+ Question 1
+
+Predict the output.
+
+
+function one() {
+    console.log("One");
+}
+
+one();
+
+console.log("Done");
+
+**Interview Focus**
+
+* Stack push/pop
+* Execution order
+
+GEC -> ONE() PUSH ->PRINTS "ONE" -> ONE () POP -> prints "DONE"-> GEC
+
+---
+
+## Question 2
+
+Predict the output.
+
+```javascript
+function one() {
+    two();
+    console.log("One");
+}
+
+function two() {
+    console.log("Two");
+}
+
+one();
+```
+
+GEC -> ONE() PUSH -> TWO() PUSH ->PRINTS "TWO" ->TWO() POP ->PRINTS "ONE" -> ONE() POP -> GEC
+
+---
+
+## Question 3
+
+Trace the Call Stack.
+
+```javascript
+function first() {
+    second();
+}
+
+function second() {
+    third();
+}
+
+function third() {
+    console.log("Hello");
+}
+
+first();
+```
+
+Draw the Call Stack at every step.
+
+GEC -> FIRST() PUSHED -> SECOND() PUSHED ->THIRD() PUSHED -> PRINTS "HELLO" -> THIRD POP ->SECOND POP-.> FIRST POP -> GEC
+
+---
+
+## Question 4
+
+Predict the output.
+
+```javascript
+function greet(name) {
+    return "Hello " + name;
+}
+
+function start() {
+    console.log(greet("Sai"));
+}
+
+start();
+```
+
+Explain what is pushed and popped.
+
+---
+
+## Question 5
+
+Predict the output.
+
+```javascript
+function a() {
+    console.log("A");
+}
+
+function b() {
+    a();
+    console.log("B");
+}
+
+function c() {
+    b();
+    console.log("C");
+}
+
+c();
+```
+
+Draw the stack after every function call.
+
+---
+
+## Question 6
+
+What is the final Call Stack before the error occurs?
+
+```javascript
+function hello() {
+    hello();
+}
+
+hello();
+```
+
+---
+
+## Question 7
+
+Predict the output.
+
+```javascript
+function test() {
+    console.log("Start");
+
+    return;
+
+    console.log("End");
+}
+
+test();
+```
+
+Explain the stack changes.
+
+GEC -> TEST PUSH -> PRINTS START -> TEST POP -> GEC  
+
+---
+
+## Question 8
+
+Predict the output.
+
+```javascript
+console.log("Start");
+
+function one() {
+    console.log("Inside");
+}
+
+one();
+
+console.log("End");
+```
+GEC -> PRINTS START ->ONE PUSH -> PRINTS INSIDE -> ONE POP ->  PRINTS END -> GEC
+---
+
+## Question 9
+
+Trace execution.
+
+```javascript
+function outer() {
+
+    function inner() {
+        console.log("Inner");
+    }
+
+    inner();
+
+    console.log("Outer");
+}
+
+outer();
+```
+
+Which execution contexts are on the stack?
+
+GEC -> OUTER PUSHED -> INNER PUSHED -> PRINTS INNER -> INNER POP ->PRINTS OUTER -> outer pop-> GEC,
+
+---
+
+## Question 10
+
+Predict the output.
+
+```javascript
+function one() {
+
+    console.log("1");
+
+    two();
+
+    console.log("2");
+}
+
+function two() {
+
+    console.log("3");
+}
+
+one();
+```
+
+Draw the stack after each statement.
+
+GEC -> ONE() PUSH -> PRINTS 1 -> TWO() PUSH -> PRINTS 3 -> TWO() POP -> PRINTS 2 -> ONE() POP -> GEC
+
+---
+
+## Question 11
+
+Predict the output.
+
+```javascript
+function a() {
+
+    console.log("A1");
+
+    b();
+
+    console.log("A2");
+}
+
+function b() {
+
+    console.log("B1");
+
+    c();
+
+    console.log("B2");
+}
+
+function c() {
+
+    console.log("C");
+}
+
+a();
+```
+
+Interviewers usually ask you to **draw the Call Stack**.
+
+GEC->  A() PUSHED -> PRINTS A1 -> B PUSHED ->PRITNS B1 -> C PUSHED -> PRINTS C  -> C POP ->PRINTS B2 -> POP B -> PRINTS A2 -> POP A -> GEC
+
+
+
+---
+
+## Question 12
+
+Predict the output.
+
+```javascript
+function sum(n) {
+
+    if (n === 0)
+        return 0;
+
+    return n + sum(n - 1);
+}
+
+console.log(sum(3));
+```
+
+Questions:
+
+* Draw the Call Stack.
+* Explain the return phase.
+* When does each frame get popped?
+
+---
+
+## Question 13
+
+Find the bug.
+
+```javascript
+function login() {
+
+    validate();
+}
+
+function validate() {
+
+    login();
+}
+
+
+
+login();
+```
+
+* Why does this crash?
+
+This program crashes because it results in infinite recursion.
+
+Here's what happens:
+
+login() is called.
+login() calls validate().
+validate() calls login().
+login() again calls validate().
+This process continues forever.
+
+Each function call creates a new Function Execution Context, which is pushed onto the Call Stack.
+
+Since neither function ever reaches a base condition or returns, the Call Stack keeps growing until it reaches its maximum size.
+
+Finally, JavaScript throws:
+
+RangeError: Maximum call stack size exceeded
+* How would you fix it?
+
+function login() {
+
+    validate();
+}
+
+function validate() {
+
+    console.log("Validated");
+}
+
+login();
+
+---
+
+## Question 14
+
+Trace the stack.
+
+```javascript
+function x() {
+
+    y();
+}
+
+function y() {
+
+    z();
+}
+
+function z() {
+
+    console.log("Done");
+}
+
+console.log("Start");
+
+x();
+
+console.log("Finish");
+```
+
+Explain every push and pop.
+
+GEC -> START -> X PUSH -> Y PUSH -> Z PUSH  -> DONE -> Z POP ->Y POP ->X POP -> FINISH -> GEC
+
+---
+
+## Question 15 (Most Asked)
+
+Predict the output.
+
+```javascript
+console.log("Start");
+
+function first() {
+
+    console.log("First");
+
+    second();
+
+    console.log("After Second");
+}
+
+function second() {
+
+    console.log("Second");
+}
+
+first();
+
+console.log("End");
+
+
+```
+
+Draw:
+
+* Stack after every function call
+* Push sequence
+* Pop sequence
+* Final output
+
+GEC -> START -> FIRST() PUSH -> FIRST PRINT -> SECOND () PUSH ->SECOND PRINT ->SECOND () POP -> AFTER SECOND PRINT-> FIRST() POP -> END -> GEC
+
+    </scirpt>
+</body>
+</html>
