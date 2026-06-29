@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<p> 
+    1.Hoisting is a JS behaviour where declaration moves to top 
+    of their scopes during the creation phase of therir execution context.
+    2.No
+    3.During the creation ohase of execution context.
+    4. Creation or memory phase and Execution phase
+    5. Creation or memory phase
+    6. JS runs using Execution context , in execution we have two phase one is creation and memory phase
+    where there store function, variables and also hoists variables and function. here we are storing the varibale
+    before their intilization so in this pahse hoisting happens
+    7. Var, let, const, class, funcitons
+    8. Yes 
+    9. Yes, fully hoisted
+    10.  yes. let is hoisted but not initilized
+     11.  yes. const is hoisted but not initilized
+     12. yes fully hoisted
+     13. Hoisting means using the variable before their declaration,
+       console.log(a); //a is undefined
+       var a =5;
+      Initilization means assigning the value to the variables
+      var a=5 //initilization
+
+    14. Example : console.log(a); //a is undefined
+       var a =5;
+       according to the above example a is undefined becasue, In exxecution context of creation
+       phase a is stored as undefined then in execution phase console.log(a)
+       becomes the undefined
+    15. Let and const were hoisted but remain not initilized . They will remain in the Temporal dead zone
+    16.  in execution context we have two phases, one is creation and memory phase
+    where there store function, variables and also hoists variables and function. here we are storing the varibale
+    before their intilization so in this phase hoisting happens. another is execution phase here js runs code line by line and store variables were intilizeda dn function were executed
+    17.in execution context we have two phases, one is creation and memory phase
+    where there store function, variables and also hoists variables and function. here we are storing the varibale
+    before their intilization so in this phase hoisting happens.
+    18. Js stores variables, function and hoisits variables
+    19. function declarations are already stored in the memory phase so they can be called and executed
+    20. function expressions are assigned to the variables, these variables are stored in memory phase and in exectuion phase then function can be used
+    21.        var a; is declaration a variable
+      Initilization means assigning the value to the variables
+      var a=5 //initilization
+      22. var can be undefined, let and const  were not initilized
+      23. TDZ is the zone occurs between the variable  declaration and intilization
+      24.
+</p>
+<body>
+    <script>
+         add()
+
+         function add(){
+            console.log("hello");
+         }
+    </script>
+    
+</body>
+</html>
