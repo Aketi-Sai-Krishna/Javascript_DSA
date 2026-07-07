@@ -532,6 +532,514 @@ const fn = A();
 fn();
 ```
 
+Excellent. Since your goal is **24 LPA+ Frontend/Product-Based companies**, these questions are designed in the style of interviews at companies like **Google, Microsoft, Amazon, Atlassian, Adobe, Salesforce, Walmart Global Tech, ServiceNow, and startups**.
+
+> **Rules**
+>
+> * ❌ Don't run the code immediately.
+> * ✅ Predict the output first.
+> * ✅ Explain **why**.
+> * ✅ Draw the **Execution Context**.
+> * ✅ Draw the **Lexical Environment**.
+> * ✅ Explain the **Scope Chain**.
+> * ✅ Mention which **scope** each variable belongs to.
+
+---
+
+# Practice Questions (Basic → Pro)
+
+---
+
+# 🟢 Question 1 — Global Scope
+
+```javascript
+let a = 10;
+
+function greet() {
+  console.log(a);
+}
+
+greet();
+```
+
+### Answer These
+
+1. What is the output?
+2. Where is `a` stored?
+3. Which Execution Contexts are created?
+4. How many Lexical Environments are created?
+5. Is the Scope Chain used?
+
+---
+
+# 🟢 Question 2 — Function Scope
+
+```javascript
+function test() {
+  let x = 20;
+}
+
+console.log(x);
+```
+
+### Answer
+
+1. Output?
+2. Why?
+3. Where is `x` stored?
+4. Which Lexical Environment contains `x`?
+
+---
+
+# 🟢 Question 3 — Block Scope
+
+```javascript
+if (true) {
+  let age = 22;
+  const city = "Hyderabad";
+}
+
+console.log(age);
+console.log(city);
+```
+
+### Answer
+
+1. Output?
+2. Which scope contains `age`?
+3. Why isn't it accessible?
+
+---
+
+# 🟢 Question 4 — var vs let
+
+```javascript
+if (true) {
+  var a = 10;
+  let b = 20;
+}
+
+console.log(a);
+console.log(b);
+```
+
+### Answer
+
+1. Output?
+2. Why is `a` accessible?
+3. Why is `b` not?
+4. Which Environment Record stores `a`?
+
+---
+
+# 🟡 Question 5 — Lexical Scope
+
+```javascript
+let language = "JavaScript";
+
+function outer() {
+
+  function inner() {
+    console.log(language);
+  }
+
+  inner();
+}
+
+outer();
+```
+
+### Explain
+
+1. Output?
+2. Why can `inner()` access `language`?
+3. Which Lexical Environment contains `language`?
+4. Draw the Scope Chain.
+
+---
+
+# 🟡 Question 6 — Parent Variables
+
+```javascript
+function outer() {
+
+  let x = 100;
+
+  function inner() {
+    console.log(x);
+  }
+
+  inner();
+}
+
+outer();
+```
+
+### Explain
+
+1. Output?
+2. Where is `x` stored?
+3. How does `inner()` find `x`?
+4. Explain the lookup process.
+
+---
+
+# 🟡 Question 7 — Child Variables
+
+```javascript
+function outer() {
+
+  function inner() {
+    let y = 50;
+  }
+
+  console.log(y);
+
+}
+
+outer();
+```
+
+### Explain
+
+1. Output?
+2. Why can't `outer()` access `y`?
+3. Explain using Lexical Scope.
+
+---
+
+# 🟡 Question 8 — Nested Functions
+
+```javascript
+let a = 1;
+
+function one() {
+
+  let b = 2;
+
+  function two() {
+
+    let c = 3;
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+  }
+
+  two();
+}
+
+one();
+```
+
+### Explain
+
+1. Output?
+2. Draw all Execution Contexts.
+3. Draw all Lexical Environments.
+4. Explain every variable lookup.
+
+---
+
+# 🟠 Question 9 — Shadowing
+
+```javascript
+let value = 10;
+
+function show() {
+
+  let value = 20;
+
+  console.log(value);
+
+}
+
+show();
+
+console.log(value);
+```
+
+### Explain
+
+1. Output?
+2. Which variable is used first?
+3. Is the Scope Chain used?
+4. Explain shadowing.
+
+---
+
+# 🟠 Question 10 — Scope Chain
+
+```javascript
+let country = "India";
+
+function A() {
+
+  let state = "AP";
+
+  function B() {
+
+    let city = "Nellore";
+
+    console.log(country);
+
+  }
+
+  B();
+
+}
+
+A();
+```
+
+### Explain
+
+1. Output?
+2. Draw the complete Scope Chain.
+3. How many Lexical Environments exist?
+4. Which Environment Record stores `country`?
+
+---
+
+# 🔴 Question 11 — Deep Scope Chain
+
+```javascript
+let x = 1;
+
+function A() {
+
+  let y = 2;
+
+  function B() {
+
+    let z = 3;
+
+    function C() {
+
+      console.log(x);
+      console.log(y);
+      console.log(z);
+
+    }
+
+    C();
+
+  }
+
+  B();
+
+}
+
+A();
+```
+
+### Explain
+
+1. Draw all Execution Contexts.
+2. Draw all Lexical Environments.
+3. Explain every lookup step.
+4. Draw the Scope Chain.
+
+---
+
+# 🔴 Question 12 — Variable Lookup
+
+```javascript
+let name = "Global";
+
+function first() {
+
+  let name = "First";
+
+  function second() {
+
+    console.log(name);
+
+  }
+
+  second();
+
+}
+
+first();
+```
+
+### Explain
+
+1. Output?
+2. Why isn't the global variable used?
+3. Explain the lookup process.
+
+---
+
+# 🔴 Question 13 — Lexical Scope
+
+```javascript
+let a = 10;
+
+function one() {
+  console.log(a);
+}
+
+function two() {
+
+  let a = 20;
+
+  one();
+
+}
+
+two();
+```
+
+### Explain
+
+1. Output?
+2. Why?
+3. Which Lexical Environment does `one()` remember?
+4. Does the calling location matter?
+
+> **This is a very common interview question.**
+
+---
+
+# 🔴 Question 14 — Function Returned
+
+```javascript
+function outer() {
+
+  let count = 0;
+
+  return function inner() {
+
+    console.log(count);
+
+  };
+
+}
+
+const fn = outer();
+
+fn();
+```
+
+### Explain
+
+1. Output?
+2. How does `inner()` still access `count`?
+3. Which Lexical Environment does `inner()` use?
+4. Why isn't `count` destroyed?
+
+> **This question introduces Closures.**
+
+---
+
+# 🔴 Question 15 — Interview-Level
+
+```javascript
+let a = 100;
+
+function A() {
+
+  let b = 200;
+
+  function B() {
+
+    let c = 300;
+
+    return function C() {
+
+      console.log(a);
+      console.log(b);
+      console.log(c);
+
+    };
+
+  }
+
+  return B();
+
+}
+
+const fn = A();
+
+fn();
+```
+
+### Explain Completely
+
+1. Output?
+2. Draw the Call Stack.
+3. Draw all Execution Contexts.
+4. Draw every Lexical Environment.
+5. Explain every Outer Reference.
+6. Draw the Scope Chain.
+7. Which variables remain in memory after `A()` finishes?
+8. Why?
+9. Which concept allows this to work?
+10. What happens if `a` doesn't exist?
+
+---
+
+# ⭐ Bonus Challenge (Senior Frontend Interview)
+
+Without executing the code, analyze the following:
+
+```javascript
+let x = "Global";
+
+function A() {
+  let x = "A";
+
+  function B() {
+    let y = "B";
+
+    function C() {
+      console.log(x);
+      console.log(y);
+    }
+
+    return C;
+  }
+
+  return B();
+}
+
+const fn = A();
+fn();
+```
+
+Explain:
+
+1. Output.
+2. Execution Context creation order.
+3. Call Stack push/pop order.
+4. Lexical Environments created.
+5. Environment Records.
+6. Outer References.
+7. Variable lookup sequence.
+8. Scope Chain traversal.
+9. Which variables stay alive after `A()` and `B()` return?
+10. Why this code works.
+
+---
+
+# 🎯 How to Practice Like a Product-Based Company Candidate
+
+For **every question**, answer in this order:
+
+1. ✅ Predict the output.
+2. ✅ Explain why.
+3. ✅ List the Execution Contexts created.
+4. ✅ Draw each Lexical Environment.
+5. ✅ Show the Environment Record for each.
+6. ✅ Show the Outer Reference for each.
+7. ✅ Trace the Scope Chain step by step.
+8. ✅ Explain the interview concept being tested (e.g., block scope, lexical scope, shadowing, closure).
+
+If you can confidently solve all 15 questions this way, you'll have a strong grasp of **Scope, Lexical Scope, Lexical Environment, and Scope Chain**, which is exactly the foundation you need before moving on to **Closures**.
+
 ---
 
 # ⭐ Scenario-Based Interview Questions
